@@ -491,24 +491,25 @@
                     </div>
                 </div>
                 <div class="contact-form-box">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label data-tr="Adınız Soyadınız" data-en="Full Name">Adınız Soyadınız</label>
-                            <input type="text" required>
+                            <input type="text" name="name" required>
                         </div>
                         <div class="form-group">
                             <label>E-posta</label>
-                            <input type="email" required>
+                            <input type="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label data-tr="Konu" data-en="Subject">Konu</label>
-                            <input type="text" required>
+                            <input type="text" name="subject" required>
                         </div>
                         <div class="form-group">
                             <label data-tr="Mesajınız" data-en="Message">Mesajınız</label>
-                            <textarea rows="5" required></textarea>
+                            <textarea name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn-submit" data-tr="Gönder" data-en="Send">Gönder</button>
+                        <div id="formMsg" class="form-msg" style="display:none;"></div>
+                        <button type="submit" class="btn-submit" id="submitBtn" data-tr="Gönder" data-en="Send">Gönder</button>
                     </form>
                 </div>
             </div>
@@ -596,6 +597,45 @@
             document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         }
+        /* Form gönderimi */
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const msg = document.getElementById('formMsg');
+            const lang = document.documentElement.lang || 'tr';
+
+            btn.disabled = true;
+            btn.textContent = lang === 'en' ? 'Sending...' : 'Gönderiliyor...';
+            msg.style.display = 'none';
+
+            const data = new FormData(this);
+
+            fetch('contact.php', { method: 'POST', body: data })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.success) {
+                        msg.className = 'form-msg success';
+                        msg.textContent = lang === 'en'
+                            ? 'Your message has been sent. We will get back to you shortly.'
+                            : 'Mesajınız iletildi. En kısa sürede size dönüş yapacağız.';
+                        document.getElementById('contactForm').reset();
+                    } else {
+                        msg.className = 'form-msg error';
+                        msg.textContent = res.error || (lang === 'en' ? 'An error occurred.' : 'Bir hata oluştu.');
+                    }
+                    msg.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = lang === 'en' ? 'Send' : 'Gönder';
+                })
+                .catch(() => {
+                    msg.className = 'form-msg error';
+                    msg.textContent = lang === 'en' ? 'Connection error. Please try again.' : 'Bağlantı hatası. Lütfen tekrar deneyin.';
+                    msg.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = lang === 'en' ? 'Send' : 'Gönder';
+                });
+        });
+
         /* Loading animasyonu */
         window.addEventListener('load', function() {
             setTimeout(function() {
