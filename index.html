@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gansat Teknoloji | BUC / SSPA Üreticisi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">GANSAT<span>TEKNOLOJİ</span></div>
+            <ul class="nav-links">
+                <li><a href="#" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+                <li><a href="#cozumler" data-tr="Ürünler" data-en="Products">Ürünler</a></li>
+                <li><a href="#kurumsal" data-tr="Kurumsal" data-en="About">Kurumsal</a></li>
+                <li><a href="#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+            </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+            <div class="hero-tag" data-tr="Yerli & Milli SSPA Üretimi · Türkiye" data-en="Domestic SSPA Manufacturing · Turkey">Yerli &amp; Milli SSPA Üretimi · Türkiye</div>
+            <h1 data-tr="Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü" data-en="Domestic Technology Power<br>in Satellite Communications">Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü</h1>
+            <p data-tr="Türkiye'de yerli SSPA üretimini gerçekleştiren Gansat Teknoloji, GaN teknolojisi tabanlı Ku-Band BUC/SSPA modellerimizle uydu haberleşme sektörüne yüksek performanslı ve güvenilir çözümler sunuyoruz." data-en="Gansat Technology — Turkey's domestic SSPA manufacturer. We deliver high-performance, reliable Ku-Band BUC/SSPA solutions to the satellite communications sector, powered by GaN technology.">Türkiye'de yerli SSPA üretimini gerçekleştiren Gansat Teknoloji, GaN teknolojisi tabanlı Ku-Band BUC/SSPA modellerimizle uydu haberleşme sektörüne yüksek performanslı ve güvenilir çözümler sunuyoruz.</p>
+            <a href="#cozumler" class="btn-primary" data-tr="Ürünleri İnceleyin" data-en="Explore Products">Ürünleri İnceleyin</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-num">5+</span>
+                <span class="stat-label" data-tr="Ku-Band Modeli" data-en="Ku-Band Models">Ku-Band Modeli</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num">200W</span>
+                <span class="stat-label" data-tr="Maks. Çıkış Gücü" data-en="Max Output Power">Maks. Çıkış Gücü</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num">GaN</span>
+                <span class="stat-label" data-tr="Teknoloji" data-en="Technology">Teknoloji</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num" data-tr="Yerli" data-en="Local">Yerli</span>
+                <span class="stat-label" data-tr="Üretim" data-en="Manufacturing">Üretim</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÜRÜNLER -->
+    <section id="cozumler" class="solutions-section">
+        <div class="container">
+            <div class="solutions-header">
+                <div class="section-tag light" data-tr="Ürün Ailesi" data-en="Product Family">Ürün Ailesi</div>
+                <h2 class="solutions-title">BUC / SSPA <em>Manufacturing</em></h2>
+            </div>
+
+            <!-- KU-BAND -->
+            <div class="band-group">
+                <div class="band-header">
+                    <div class="band-dot ku"></div>
+                    <span class="band-label">KU-BAND</span>
+                    <span class="band-freq">13.75 – 14.50 GHz · GaN</span>
+                </div>
+                <p class="band-desc" data-tr="VSAT · TV Yayıncılığı · İnternet · Taşınabilir Uygulamalar" data-en="VSAT · Broadcasting · Internet · Portable Applications">VSAT · TV Yayıncılığı · İnternet · Taşınabilir Uygulamalar</p>
+
+                <div class="products-grid">
+
+                    <div class="product-card" onclick="openModal('modal20w')">
+                        <div class="card-img-wrap">
+                            <img src="20w-thumb.png" alt="20W SSPA">
+                        </div>
+                        <div class="card-inner">
+                            <p class="card-type">BUC / SSPA · Ku-Band</p>
+                            <div class="card-watt">20<span>W</span></div>
+                            <div class="card-quick-specs">
+                                <span>+43 dBm</span>
+                                <span>GaN</span>
+                                <span>4.5 kg</span>
+                            </div>
+                            <span class="card-tag ku" data-tr="Kompakt · Taşınabilir" data-en="Compact · Portable">Kompakt · Taşınabilir</span>
+                        </div>
+                        <div class="card-action">
+                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-glow ku"></div>
+                    </div>
+
+                    <div class="product-card" onclick="openModal('modal50w')">
+                        <div class="card-img-wrap">
+                            <img src="50w-thumb.png" alt="50W SSPA">
+                        </div>
+                        <div class="card-inner">
+                            <p class="card-type">BUC / SSPA · Ku-Band</p>
+                            <div class="card-watt">50<span>W</span></div>
+                            <div class="card-quick-specs">
+                                <span>+47 dBm</span>
+                                <span>GaN</span>
+                                <span>10 kg</span>
+                            </div>
+                            <span class="card-tag ku" data-tr="Orta Ölçek" data-en="Mid-Range">Orta Ölçek</span>
+                        </div>
+                        <div class="card-action">
+                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-glow ku"></div>
+                    </div>
+
+                    <div class="product-card" onclick="openModal('modal100w')">
+                        <div class="card-img-wrap">
+                            <img src="100w-thumb.png" alt="100W SSPA">
+                        </div>
+                        <div class="card-inner">
+                            <p class="card-type">BUC / SSPA · Ku-Band</p>
+                            <div class="card-watt">100<span>W</span></div>
+                            <div class="card-quick-specs">
+                                <span>+50 dBm</span>
+                                <span>GaN</span>
+                                <span>15 kg</span>
+                            </div>
+                            <span class="card-tag ku" data-tr="Kurumsal" data-en="Enterprise">Kurumsal</span>
+                        </div>
+                        <div class="card-action">
+                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-glow ku"></div>
+                    </div>
+
+                    <div class="product-card" onclick="openModal('modal200w')">
+                        <div class="card-img-wrap">
+                            <img src="200w-thumb.png" alt="200W SSPA">
+                        </div>
+                        <div class="card-inner">
+                            <p class="card-type">BUC / SSPA · Ku-Band</p>
+                            <div class="card-watt">200<span>W</span></div>
+                            <div class="card-quick-specs">
+                                <span>+53.2 dBm</span>
+                                <span>GaN</span>
+                                <span>20 kg</span>
+                            </div>
+                            <span class="card-tag ku" data-tr="Yüksek Güç" data-en="High Power">Yüksek Güç</span>
+                        </div>
+                        <div class="card-action">
+                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-glow ku"></div>
+                    </div>
+
+                    <div class="product-card" onclick="openModal('modal400w')">
+                        <div class="card-img-wrap">
+                            <img src="400w-thumb.png" alt="400W SSPA">
+                        </div>
+                        <div class="card-inner">
+                            <p class="card-type">BUC / SSPA · Ku-Band</p>
+                            <div class="card-watt">400<span>W</span></div>
+                            <div class="card-quick-specs">
+                                <span>GaN</span>
+                            </div>
+                            <span class="card-tag ku" data-tr="Maksimum Güç" data-en="Maximum Power">Maksimum Güç</span>
+                        </div>
+                        <div class="card-action">
+                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-glow ku"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <p class="solutions-footnote">
+                <span data-tr="Teknik detay ve fiyat teklifi için bizimle iletişime geçin." data-en="Contact us for technical specifications and pricing.">Teknik detay ve fiyat teklifi için bizimle iletişime geçin.</span>
+                &nbsp;→&nbsp;<a href="#iletisim" data-tr="Bize Ulaşın" data-en="Get in Touch">Bize Ulaşın</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- DALGA GEÇİŞİ -->
+    <div class="wave-divider">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+
+    <!-- KURUMSAL -->
+    <section id="kurumsal" class="about-section">
+        <div class="container about-grid">
+            <div class="about-left">
+                <div class="section-tag" data-tr="Kurumsal" data-en="About Us">Kurumsal</div>
+                <h2 data-tr="Türkiye'nin<br>SSPA Öncüsü" data-en="Turkey's Pioneer<br>in SSPA Manufacturing">Türkiye'nin<br>SSPA Öncüsü</h2>
+            </div>
+            <div class="about-right">
+                <p data-tr="Gansat Teknoloji olarak, Türkiye'de bir ilki gerçekleştiriyor ve yerli SSPA (Solid State Power Amplifier) üretimini başarıyla sürdürüyoruz. 20W'dan 400W'a uzanan Ku-Band BUC/SSPA modellerimizle sektöre yüksek performanslı, yerli teknoloji çözümleri sunuyor; ithalat bağımlılığını azaltarak Türkiye'nin teknolojik bağımsızlığına katkı sağlıyoruz." data-en="At Gansat Technology, we are pioneering the first domestic SSPA (Solid State Power Amplifier) manufacturing in Turkey. With our Ku-Band BUC/SSPA models ranging from 20W to 400W, we deliver high-performance, locally developed solutions to the sector — reducing import dependency and contributing to Turkey's technological independence.">Gansat Teknoloji olarak, Türkiye'de bir ilki gerçekleştiriyor ve yerli SSPA (Solid State Power Amplifier) üretimini başarıyla sürdürüyoruz. 20W'dan 400W'a uzanan Ku-Band BUC/SSPA modellerimizle sektöre yüksek performanslı, yerli teknoloji çözümleri sunuyor; ithalat bağımlılığını azaltarak Türkiye'nin teknolojik bağımsızlığına katkı sağlıyoruz.</p>
+                <p style="margin-top: 16px;" data-tr="GaN teknolojisi tabanlı ürünlerimiz; yüksek verim, düşük güç tüketimi ve uzun ömürlü güvenilirlik sunuyor. Güçlü mühendislik altyapımızla teknolojiyi geliştirmeye, hizmet ağımızı genişletmeye ve sektöre katma değer üretmeye devam ediyoruz." data-en="Our GaN-based products deliver high efficiency, low power consumption and long-term reliability. With a strong engineering foundation, we continue to advance our technology, expand our service network and create lasting value for the industry.">GaN teknolojisi tabanlı ürünlerimiz; yüksek verim, düşük güç tüketimi ve uzun ömürlü güvenilirlik sunuyor. Güçlü mühendislik altyapımızla teknolojiyi geliştirmeye, hizmet ağımızı genişletmeye ve sektöre katma değer üretmeye devam ediyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERİ -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="resim1.png" alt="Gansat Teknoloji">
+                </div>
+                <div class="gallery-item">
+                    <img src="resim2.png" alt="Gansat Teknoloji">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALLER - Ku-Band -->
+    <div id="modal20w" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal20w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <div class="modal-band-tag ku">Ku-Band · GaN</div>
+            <h3>20W SSPA</h3>
+            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, taşınabilir ve mobil uygulamalar için idealdir." data-en="L-to-Ku Band Block Up Converter based on GaN technology. Ideal for portable and mobile applications.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, taşınabilir ve mobil uygulamalar için idealdir.</p>
+            <div class="modal-specs">
+                <div class="spec-row"><span data-tr="RF Frekans" data-en="RF Frequency">RF Frekans</span><strong>13.75 – 14.50 GHz</strong></div>
+                <div class="spec-row"><span data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</span><strong>20W (+43 dBm)</strong></div>
+                <div class="spec-row"><span data-tr="Güç Tüketimi" data-en="Power Consumption">Güç Tüketimi</span><strong>92W typ.</strong></div>
+                <div class="spec-row"><span data-tr="Besleme" data-en="Power Supply">Besleme</span><strong>15 – 60 VDC</strong></div>
+                <div class="spec-row"><span data-tr="Kazanç" data-en="Gain">Kazanç</span><strong>65 dB min, 68 dB nom.</strong></div>
+                <div class="spec-row"><span data-tr="Boyut" data-en="Dimensions">Boyut</span><strong>230 × 160 × 160 mm</strong></div>
+                <div class="spec-row"><span data-tr="Ağırlık" data-en="Weight">Ağırlık</span><strong>4.5 kg</strong></div>
+            </div>
+            <a href="20w-sspa.html" class="modal-detail-btn" data-tr="Tam Teknik Özellikler →" data-en="Full Specifications →">Tam Teknik Özellikler →</a>
+        </div>
+    </div>
+
+    <div id="modal50w" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal50w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <div class="modal-band-tag ku">Ku-Band · GaN</div>
+            <h3>50W SSPA</h3>
+            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, uydu uplink uygulamaları için tasarlanmıştır." data-en="L-to-Ku Band Block Up Converter based on GaN technology. Designed for satellite uplink applications.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, uydu uplink uygulamaları için tasarlanmıştır.</p>
+            <div class="modal-specs">
+                <div class="spec-row"><span data-tr="RF Frekans" data-en="RF Frequency">RF Frekans</span><strong>13.75 – 14.50 GHz</strong></div>
+                <div class="spec-row"><span data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</span><strong>50W (+47 dBm)</strong></div>
+                <div class="spec-row"><span data-tr="Güç Tüketimi" data-en="Power Consumption">Güç Tüketimi</span><strong>200W typ.</strong></div>
+                <div class="spec-row"><span data-tr="Besleme" data-en="Power Supply">Besleme</span><strong>15 – 60 VDC</strong></div>
+                <div class="spec-row"><span data-tr="Kazanç" data-en="Gain">Kazanç</span><strong>65 dB min, 68 dB nom.</strong></div>
+                <div class="spec-row"><span data-tr="Boyut" data-en="Dimensions">Boyut</span><strong>250 × 190 × 170 mm</strong></div>
+                <div class="spec-row"><span data-tr="Ağırlık" data-en="Weight">Ağırlık</span><strong>10 kg</strong></div>
+            </div>
+            <a href="50w-sspa.html" class="modal-detail-btn" data-tr="Tam Teknik Özellikler →" data-en="Full Specifications →">Tam Teknik Özellikler →</a>
+        </div>
+    </div>
+
+    <div id="modal100w" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal100w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <div class="modal-band-tag ku">Ku-Band · GaN</div>
+            <h3>100W SSPA</h3>
+            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, kurumsal uydu uplink uygulamaları için idealdir." data-en="L-to-Ku Band Block Up Converter based on GaN technology. Ideal for enterprise satellite uplink applications.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, kurumsal uydu uplink uygulamaları için idealdir.</p>
+            <div class="modal-specs">
+                <div class="spec-row"><span data-tr="RF Frekans" data-en="RF Frequency">RF Frekans</span><strong>13.75 – 14.50 GHz</strong></div>
+                <div class="spec-row"><span data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</span><strong>100W (+50 dBm)</strong></div>
+                <div class="spec-row"><span data-tr="Güç Tüketimi" data-en="Power Consumption">Güç Tüketimi</span><strong>500W typ.</strong></div>
+                <div class="spec-row"><span data-tr="Besleme" data-en="Power Supply">Besleme</span><strong>15 – 60 VDC</strong></div>
+                <div class="spec-row"><span data-tr="Kazanç" data-en="Gain">Kazanç</span><strong>65 dB min, 68 dB nom.</strong></div>
+                <div class="spec-row"><span data-tr="Boyut" data-en="Dimensions">Boyut</span><strong>330 × 220 × 220 mm</strong></div>
+                <div class="spec-row"><span data-tr="Ağırlık" data-en="Weight">Ağırlık</span><strong>15 kg</strong></div>
+            </div>
+            <a href="100w-sspa.html" class="modal-detail-btn" data-tr="Tam Teknik Özellikler →" data-en="Full Specifications →">Tam Teknik Özellikler →</a>
+        </div>
+    </div>
+
+    <div id="modal200w" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal200w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <div class="modal-band-tag ku">Ku-Band · GaN</div>
+            <h3>200W SSPA</h3>
+            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. Yüksek verimli GaN solid-state tasarım, zorlu ortamlarda güvenilir yüksek güç sağlar." data-en="L-to-Ku Band Block Up Converter. High-efficiency GaN solid-state design delivers reliable high power in the toughest environments.">L-to-Ku Band Block Up Converter. Yüksek verimli GaN solid-state tasarım, zorlu ortamlarda güvenilir yüksek güç sağlar.</p>
+            <div class="modal-specs">
+                <div class="spec-row"><span data-tr="RF Frekans" data-en="RF Frequency">RF Frekans</span><strong>13.75 – 14.50 GHz</strong></div>
+                <div class="spec-row"><span data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</span><strong>200W (+53.2 dBm)</strong></div>
+                <div class="spec-row"><span data-tr="Güç Tüketimi" data-en="Power Consumption">Güç Tüketimi</span><strong>1170W typ.</strong></div>
+                <div class="spec-row"><span data-tr="Besleme" data-en="Power Supply">Besleme</span><strong>15 – 60 VDC</strong></div>
+                <div class="spec-row"><span data-tr="Kazanç" data-en="Gain">Kazanç</span><strong>65 dB min, 68 dB nom.</strong></div>
+                <div class="spec-row"><span data-tr="Boyut" data-en="Dimensions">Boyut</span><strong>350 × 300 × 210 mm</strong></div>
+                <div class="spec-row"><span data-tr="Ağırlık" data-en="Weight">Ağırlık</span><strong>20 kg</strong></div>
+            </div>
+            <a href="200w-sspa.html" class="modal-detail-btn" data-tr="Tam Teknik Özellikler →" data-en="Full Specifications →">Tam Teknik Özellikler →</a>
+        </div>
+    </div>
+
+    <div id="modal400w" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal400w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <div class="modal-band-tag ku">Ku-Band · GaN</div>
+            <h3>400W SSPA</h3>
+            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı maksimum güç çözümü." data-en="L-to-Ku Band Block Up Converter based on GaN technology. Maximum power solution.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı maksimum güç çözümü.</p>
+            <p class="modal-contact-note" data-tr="Teknik detaylar yakında eklenecektir. Bilgi için bizimle iletişime geçin." data-en="Technical specifications coming soon. Contact us for more information.">Teknik detaylar yakında eklenecektir. Bilgi için bizimle iletişime geçin.</p>
+            <a href="#iletisim" class="modal-detail-btn" onclick="closeModal('modal400w')" data-tr="İletişime Geçin →" data-en="Get in Touch →">İletişime Geçin →</a>
+        </div>
+    </div>
+
+    <!-- İLETİŞİM -->
+    <section id="iletisim" class="contact-section">
+        <div class="container">
+            <div class="section-tag" data-tr="İletişim" data-en="Contact">İletişim</div>
+            <h2 class="contact-title" data-tr="Bize Ulaşın" data-en="Get in Touch">Bize Ulaşın</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="info-label" data-tr="Adres" data-en="Address">Adres</span>
+                        <p>Tepeören Mah. Demokrasi Caddesi No: 153/1<br>34959 Tuzla / İstanbul</p>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">E-posta</span>
+                        <p><a href="mailto:sales@gansat.com.tr">sales@gansat.com.tr</a></p>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label" data-tr="Telefon" data-en="Phone">Telefon</span>
+                        <p><a href="tel:+905412763946">+90 (541) 276 39 46</a></p>
+                    </div>
+                    <div class="map-wrap">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d266.5212984850719!2d29.387762975449174!3d40.90820614022374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cad9973e9e8f6b%3A0x8647b000cfebcb8f!2sGANSAT%20TEKNOLOJi!5e0!3m2!1sen!2str!4v1776511914690!5m2!1sen!2str"
+                            width="100%"
+                            height="220"
+                            style="border:0; display: block;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="contact-form-box">
+                    <form>
+                        <div class="form-group">
+                            <label data-tr="Adınız Soyadınız" data-en="Full Name">Adınız Soyadınız</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>E-posta</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-tr="Konu" data-en="Subject">Konu</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-tr="Mesajınız" data-en="Message">Mesajınız</label>
+                            <textarea rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" data-tr="Gönder" data-en="Send">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="logo" style="font-size:1.1rem;">GANSAT<span>TEKNOLOJİ</span></div>
+            <p>&copy; 2023 Gansat Teknoloji. <span data-tr="Tüm Hakları Saklıdır." data-en="All Rights Reserved.">Tüm Hakları Saklıdır.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+        window.addEventListener('click', function(e) { if (e.target.classList.contains('modal')) { e.target.classList.remove('open'); document.body.style.overflow = ''; } });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.querySelectorAll('.modal.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; }); } });
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-tr]').forEach(el => { const t = el.getAttribute('data-' + lang); if (t) el.innerHTML = t; });
+            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        }
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.08 });
+        document.querySelectorAll('.product-card, .gallery-item, .about-grid').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

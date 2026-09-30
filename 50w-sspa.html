@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50W SSPA | Gansat Teknoloji</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">GANSAT<span>TEKNOLOJİ</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+                <li><a href="index.html#kurumsal" data-tr="Kurumsal" data-en="About">Kurumsal</a></li>
+                <li><a href="index.html#cozumler" data-tr="Ürünler" data-en="Products">Ürünler</a></li>
+                <li><a href="index.html#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+            </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="product-hero">
+        <div class="container">
+            <a href="index.html#cozumler" class="breadcrumb" data-tr="← Tüm Ürünler" data-en="← All Products">← Tüm Ürünler</a>
+            <div class="product-hero-grid">
+                <div class="product-gallery">
+                    <div class="main-img-wrap">
+                        <img src="50w-1.png" alt="50W SSPA" id="mainImg" onerror="this.src=''; this.alt='Görsel Yakında'">
+                    </div>
+                    <div class="thumb-row">
+                        <img src="50w-1.png" alt="Görsel 1" onclick="switchImg(this)" class="active" onerror="this.style.display='none'">
+                        <img src="50w-2.png" alt="Görsel 2" onclick="switchImg(this)" onerror="this.style.display='none'">
+                        <img src="50w-3.png" alt="Görsel 3" onclick="switchImg(this)" onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <div class="product-intro">
+                    <div class="modal-band-tag ku" style="margin-bottom:16px;">Ku-Band · GaN</div>
+                    <h1>50W SSPA</h1>
+                    <p class="product-lead" data-tr="50W L-to-Ku Band Block Up Converter, GaN teknolojisi tabanlıdır. Uydu uplink uygulamalarında en yüksek performansı sunmak üzere tasarlanmıştır." data-en="50W L-to-Ku Band Block Up Converter is based on GaN technology. Designed to provide the highest performance for satellite uplink applications.">50W L-to-Ku Band Block Up Converter, GaN teknolojisi tabanlıdır. Uydu uplink uygulamalarında en yüksek performansı sunmak üzere tasarlanmıştır.</p>
+                    <div class="key-stats">
+                        <div class="ks-item"><span class="ks-val">50W</span><span class="ks-label" data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</span></div>
+                        <div class="ks-item"><span class="ks-val">GaN</span><span class="ks-label" data-tr="Teknoloji" data-en="Technology">Teknoloji</span></div>
+                        <div class="ks-item"><span class="ks-val">10 kg</span><span class="ks-label" data-tr="Ağırlık" data-en="Weight">Ağırlık</span></div>
+                        <div class="ks-item"><span class="ks-val">200W</span><span class="ks-label" data-tr="Güç Tüketimi" data-en="Power Draw">Güç Tüketimi</span></div>
+                    </div>
+                    <h3 class="features-title" data-tr="Temel Özellikler" data-en="Key Features">Temel Özellikler</h3>
+                    <ul class="feature-list">
+                        <li data-tr="Çıkış frekansı 13.75 – 14.50 GHz" data-en="Output frequency 13.75 – 14.50 GHz">Çıkış frekansı 13.75 – 14.50 GHz</li>
+                        <li data-tr="Yerel osilatör: 12.80 GHz" data-en="Local oscillator: 12.80 GHz">Yerel osilatör: 12.80 GHz</li>
+                        <li data-tr="GaN teknolojisi: yüksek verim, düşük güç tüketimi ve yüksek güvenilirlik" data-en="GaN technology: high efficiency, low power consumption and high reliability">GaN teknolojisi: yüksek verim, düşük güç tüketimi ve yüksek güvenilirlik</li>
+                        <li data-tr="Eşsiz düşük güç tüketimi (200W maks.)" data-en="Incomparable low power consumption (200W max.)">Eşsiz düşük güç tüketimi (200W maks.)</li>
+                        <li data-tr="Otomatik aralıklı güç girişi: 36 – 60 VDC" data-en="Auto-ranging power supply: 36 – 60 VDC">Otomatik aralıklı güç girişi: 36 – 60 VDC</li>
+                        <li data-tr="Dahili 10 MHz yüksek kararlılıklı referans (opsiyonel)" data-en="Internal 10MHz high stability reference (optional)">Dahili 10 MHz yüksek kararlılıklı referans (opsiyonel)</li>
+                        <li data-tr="RoHS uyumlu" data-en="RoHS compliant">RoHS uyumlu</li>
+                    </ul>
+                    <a href="index.html#iletisim" class="btn-primary" data-tr="Teklif Al" data-en="Request a Quote">Teklif Al</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="specs-section">
+        <div class="container">
+            <h2 class="specs-title" data-tr="Teknik Özellikler" data-en="Technical Specifications">Teknik Özellikler</h2>
+            <div class="specs-table-wrap">
+                <table class="specs-table">
+                    <tbody>
+                        <tr><td data-tr="RF Frekans" data-en="RF Frequency">RF Frekans</td><td>13.75 – 14.50 GHz</td></tr>
+                        <tr><td data-tr="Yerel Osilatör" data-en="Local Oscillator">Yerel Osilatör</td><td>12.80 GHz</td></tr>
+                        <tr><td data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</td><td>50W (+47 dBm)</td></tr>
+                        <tr><td data-tr="IF Konnektör" data-en="IF Connector">IF Konnektör</td><td>N-type or F-type</td></tr>
+                        <tr><td data-tr="Güç Kaynağı (Otomatik Aralıklı)" data-en="Power Supply (Auto-ranging)">Güç Kaynağı (Otomatik Aralıklı)</td><td>+15 ~ +60 VDC via IF cable, 200W typ.</td></tr>
+                        <tr><td data-tr="Çıkış Arayüzü" data-en="Output Interface">Çıkış Arayüzü</td><td>WR-75 G</td></tr>
+                        <tr><td data-tr="Kazanç" data-en="Gain">Kazanç</td><td>65 dB min, 68 dB nominal</td></tr>
+                        <tr><td>IMD3 (two tones)</td><td>-26 dBc max. 2 signal 5 MHz apart at P-LINEAR</td></tr>
+                        <tr><td>L.O. Leakage</td><td>-45 dBm max</td></tr>
+                        <tr><td>Spurious</td><td>-50 dBc max</td></tr>
+                        <tr><td data-tr="Spektral Büyüme" data-en="Spectral Regrowth">Spektral Büyüme</td><td>-30 dBc</td></tr>
+                        <tr><td data-tr="Dış Referans Gereksinimi" data-en="External Reference Requirement">Dış Referans Gereksinimi</td><td>via IF cable — 10 MHz (sine-wave), -5 to +5 dBm @ input port</td></tr>
+                        <tr><td data-tr="TX Kazanç Varyasyonu / Sıcaklık Kararlılığı" data-en="TX Gain Variation / Temperature Stability">TX Kazanç Varyasyonu / Sıcaklık Kararlılığı</td><td>± 0.5 dB over 40 MHz / ± 1.8 dB over full band / ± 1.5 dB typ., ± 1.8 dB max.</td></tr>
+                        <tr><td data-tr="Faz Gürültüsü (Intelsat IESS308/309)" data-en="Phase Noise (Intelsat IESS308/309)">Faz Gürültüsü</td><td>-55 dBc/Hz @ 10 Hz · -65 @ 100 Hz · -75 @ 1 kHz · -85 @ 10 kHz · -95 @ 100 kHz · -115 @ 1 MHz</td></tr>
+                        <tr><td data-tr="Gürültü Güç Yoğunluğu TX / RX" data-en="Noise Power Density TX / RX">Gürültü Güç Yoğunluğu TX / RX</td><td>-80 dBm/Hz (max) / -125 dBm/Hz (max)</td></tr>
+                        <tr><td data-tr="Gürültü Figürü" data-en="Noise Figure">Gürültü Figürü</td><td>15 dB max</td></tr>
+                        <tr><td>Input / Output V.S.W.R.</td><td>2:1 max</td></tr>
+                        <tr><td>Mute</td><td data-tr="HPA'yı kapatır (L.O. kilitsizse)" data-en="Shut off the HPA if L.O. unlocked">HPA'yı kapatır (L.O. kilitsizse)</td></tr>
+                        <tr><td data-tr="Çalışma / Depolama Sıcaklığı" data-en="Operating / Storage Temperature">Çalışma / Depolama Sıcaklığı</td><td>-40°C to +55°C / -55°C to +85°C</td></tr>
+                        <tr><td data-tr="Boyutlar" data-en="Dimensions">Boyutlar</td><td>250 (L) × 190 (W) × 170 (H) mm — 9.8" × 7.4" × 6.7"</td></tr>
+                        <tr><td data-tr="Ağırlık" data-en="Weight">Ağırlık</td><td>10 kg (22 lbs) max</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-nav-section">
+        <div class="container product-nav">
+            <span class="pnav-label" data-tr="Diğer Modeller" data-en="Other Models">Diğer Modeller</span>
+            <div class="pnav-links">
+                <a href="20w-sspa.html">← 20W</a>
+                <span class="pnav-current">50W</span>
+                <a href="100w-sspa.html">100W →</a>
+                <a href="200w-sspa.html">200W →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="logo" style="font-size:1.1rem;">GANSAT<span>TEKNOLOJİ</span></div>
+            <p>&copy; 2026 Gansat Teknoloji &amp; Teleport Uydu. <span data-tr="Tüm Hakları Saklıdır." data-en="All Rights Reserved.">Tüm Hakları Saklıdır.</span></p>
+        </div>
+    </footer>
+    <script>
+        function switchImg(el) { document.getElementById('mainImg').src = el.src; document.querySelectorAll('.thumb-row img').forEach(i => i.classList.remove('active')); el.classList.add('active'); }
+        function setLang(lang) { document.documentElement.lang = lang; document.querySelectorAll('[data-tr]').forEach(el => { const t = el.getAttribute('data-' + lang); if (t) el.innerHTML = t; }); document.getElementById('btn-tr').classList.toggle('active', lang === 'tr'); document.getElementById('btn-en').classList.toggle('active', lang === 'en'); }
+    </script>
+</body>
+</html>
