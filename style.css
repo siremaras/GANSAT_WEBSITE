@@ -145,9 +145,26 @@ nav { display: flex; justify-content: space-between; align-items: center; height
 
 .why-card:hover {
     background: rgba(0,168,255,0.06);
-    border-color: rgba(0,168,255,0.4);
+    border-color: rgba(0,168,255,0.5);
     transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 20px rgba(0,168,255,0.1);
 }
+
+.why-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blue-bright), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 12px 12px;
+}
+
+.why-card { position: relative; }
+.why-card:hover::after { opacity: 1; }
 
 .why-icon {
     width: 48px;
@@ -336,7 +353,11 @@ nav { display: flex; justify-content: space-between; align-items: center; height
     min-height: 200px;
 }
 
-.product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+.product-card:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0,168,255,0.15);
+    border-color: rgba(0,168,255,0.5);
+}
 .product-card.featured { border: 2px solid var(--blue-bright); }
 
 /* Görsel alanı — şeffaf PNG için koyu arka plan */
@@ -399,7 +420,34 @@ nav { display: flex; justify-content: space-between; align-items: center; height
 
 .product-card:hover .card-action { background: #f0f7ff; }
 
-.card-glow { display: none; }
+.card-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--blue-bright), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .card-glow { opacity: 1; }
+
+/* Kart üst kenarda parlama */
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blue-bright), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.product-card:hover::before { opacity: 1; }
 
 .solutions-footnote { font-size: 13px; color: rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px; margin-top: 8px; position: relative; z-index: 1; }
 .solutions-footnote a { color: var(--blue-bright); text-decoration: none; font-weight: 500; }
