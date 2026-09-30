@@ -23,7 +23,7 @@ body { font-family: 'Barlow', sans-serif; color: var(--text); background: var(--
 header { background: var(--navy); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.06); }
 nav { display: flex; justify-content: space-between; align-items: center; height: 64px; }
 
-.logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--white); letter-spacing: 0.04em; text-decoration: none; }
+.logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--white); letter-spacing: 0.04em; text-decoration: none; display: flex; align-items: center; }
 .logo span { color: var(--blue-bright); font-weight: 400; margin-left: 2px; }
 
 .nav-links { list-style: none; display: flex; gap: 36px; }
