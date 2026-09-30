@@ -100,6 +100,8 @@
                 <path class="radar-sweep" d="M300,300 L300,10 A290,290 0 0,1 590,300 Z"/>
             </svg>
         </div>
+
+
         <div class="hero-content">
             <div class="hero-tag" data-tr="Yerli & Milli SSPA Üretimi · Türkiye" data-en="Domestic SSPA Manufacturing · Turkey">Yerli &amp; Milli SSPA Üretimi · Türkiye</div>
             <h1 data-tr="Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü" data-en="Domestic Technology Power<br>in Satellite Communications">Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü</h1>
@@ -606,8 +608,8 @@
             const COUNT = 80;
 
             function resize() {
-                canvas.width  = canvas.offsetWidth;
-                canvas.height = canvas.offsetHeight;
+                canvas.width  = canvas.parentElement.offsetWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
             }
 
             function createParticle() {
