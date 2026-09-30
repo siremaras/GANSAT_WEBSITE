@@ -1,467 +1,420 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gansat Teknoloji | BUC / SSPA Üreticisi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* ===================== RESET & BASE ===================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-    <header>
-        <nav class="container">
-            <div class="logo">GANSAT<span>TEKNOLOJİ</span></div>
-            <ul class="nav-links">
-                <li><a href="#" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
-                <li><a href="#cozumler" data-tr="Ürünler" data-en="Products">Ürünler</a></li>
-                <li><a href="#kurumsal" data-tr="Kurumsal" data-en="About">Kurumsal</a></li>
-                <li><a href="#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a></li>
-            </ul>
-            <div class="lang-toggle">
-                <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
-                <span class="lang-divider">|</span>
-                <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-            </div>
-        </nav>
-    </header>
+:root {
+    --navy: #001f3f;
+    --navy-mid: #002d5a;
+    --blue: #0077cc;
+    --blue-bright: #00a8ff;
+    --teal: #00c9a7;
+    --white: #ffffff;
+    --off-white: #f4f5f7;
+    --text: #1a2332;
+    --text-muted: #6b7a90;
+    --border: #e2e8f0;
+}
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-bg-grid"></div>
+body { font-family: 'Barlow', sans-serif; color: var(--text); background: var(--off-white); line-height: 1.6; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.text-center { text-align: center; }
 
-        <!-- Animasyonlu radar/sinyal dalgası -->
-        <div class="hero-radar">
-            <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <circle class="radar-ring" cx="300" cy="300" r="80"/>
-                <circle class="radar-ring" cx="300" cy="300" r="150" style="animation-delay: 0.6s"/>
-                <circle class="radar-ring" cx="300" cy="300" r="220" style="animation-delay: 1.2s"/>
-                <circle class="radar-ring" cx="300" cy="300" r="290" style="animation-delay: 1.8s"/>
-                <line class="radar-sweep-line" x1="300" y1="300" x2="300" y2="10"/>
-                <path class="radar-sweep" d="M300,300 L300,10 A290,290 0 0,1 590,300 Z"/>
-            </svg>
-        </div>
-        <div class="hero-content">
-            <div class="hero-tag" data-tr="Yerli & Milli SSPA Üretimi · Türkiye" data-en="Domestic SSPA Manufacturing · Turkey">Yerli &amp; Milli SSPA Üretimi · Türkiye</div>
-            <h1 data-tr="Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü" data-en="Domestic Technology Power<br>in Satellite Communications">Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü</h1>
-            <p data-tr="Türkiye'de yerli SSPA üretimini gerçekleştiren Gansat Teknoloji, GaN teknolojisi tabanlı Ku-Band BUC/SSPA modellerimizle uydu haberleşme sektörüne yüksek performanslı ve güvenilir çözümler sunuyoruz." data-en="Gansat Technology — Turkey's domestic SSPA manufacturer. We deliver high-performance, reliable Ku-Band BUC/SSPA solutions to the satellite communications sector, powered by GaN technology.">Türkiye'de yerli SSPA üretimini gerçekleştiren Gansat Teknoloji, GaN teknolojisi tabanlı Ku-Band BUC/SSPA modellerimizle uydu haberleşme sektörüne yüksek performanslı ve güvenilir çözümler sunuyoruz.</p>
-            <a href="#cozumler" class="btn-primary" data-tr="Ürünleri İnceleyin" data-en="Explore Products">Ürünleri İnceleyin</a>
-        </div>
-        <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-num">5+</span>
-                <span class="stat-label" data-tr="Ku-Band Modeli" data-en="Ku-Band Models">Ku-Band Modeli</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-                <span class="stat-num">200W</span>
-                <span class="stat-label" data-tr="Maks. Çıkış Gücü" data-en="Max Output Power">Maks. Çıkış Gücü</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-                <span class="stat-num">GaN</span>
-                <span class="stat-label" data-tr="Teknoloji" data-en="Technology">Teknoloji</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-                <span class="stat-num" data-tr="Yerli" data-en="Local">Yerli</span>
-                <span class="stat-label" data-tr="Üretim" data-en="Manufacturing">Üretim</span>
-            </div>
-        </div>
-    </section>
+/* ===================== HEADER ===================== */
+header { background: var(--navy); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.06); }
+nav { display: flex; justify-content: space-between; align-items: center; height: 64px; }
 
-    <!-- ÜRÜNLER -->
-    <section id="cozumler" class="solutions-section">
-        <div class="container">
-            <div class="solutions-header">
-                <div class="section-tag light" data-tr="Ürün Ailesi" data-en="Product Family">Ürün Ailesi</div>
-                <h2 class="solutions-title" data-tr="BUC / SSPA <em>Üretimi</em>" data-en="BUC / SSPA <em>Manufacturing</em>">BUC / SSPA <em>Üretimi</em></h2>
-            </div>
+.logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--white); letter-spacing: 0.04em; text-decoration: none; }
+.logo span { color: var(--blue-bright); font-weight: 400; margin-left: 2px; }
 
-            <!-- KU-BAND -->
-            <div class="band-group">
-                <div class="band-header">
-                    <div class="band-dot ku"></div>
-                    <span class="band-label">KU-BAND</span>
-                    <span class="band-freq">13.75 – 14.50 GHz · GaN</span>
-                </div>
-                <p class="band-desc" data-tr="VSAT · TV Yayıncılığı · İnternet · Taşınabilir Uygulamalar" data-en="VSAT · Broadcasting · Internet · Portable Applications">VSAT · TV Yayıncılığı · İnternet · Taşınabilir Uygulamalar</p>
+.nav-links { list-style: none; display: flex; gap: 36px; }
+.nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
 
-                <div class="products-grid">
+.lang-toggle { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 4px 8px; }
+.lang-btn { background: none; border: none; color: rgba(255,255,255,0.45); font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; cursor: pointer; padding: 2px 4px; border-radius: 3px; transition: color 0.2s, background 0.2s; }
+.lang-btn.active { color: var(--white); background: rgba(0,168,255,0.2); }
+.lang-btn:hover:not(.active) { color: rgba(255,255,255,0.75); }
+.lang-divider { color: rgba(255,255,255,0.2); font-size: 0.75rem; user-select: none; }
 
-                    <div class="product-card" onclick="openModal('modal20w')">
-                        <div class="card-img-wrap">
-                            <img src="20w-thumb.png" alt="20W SSPA">
-                        </div>
-                        <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
-                            <div class="card-watt">20<span>W</span></div>
-                            <div class="card-quick-specs">
-                                <span>+43 dBm</span>
-                                <span>GaN</span>
-                                <span>4.5 kg</span>
-                            </div>
-                            <span class="card-tag ku" data-tr="Kompakt · Taşınabilir" data-en="Compact · Portable">Kompakt · Taşınabilir</span>
-                        </div>
-                        <div class="card-action">
-                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <div class="card-glow ku"></div>
-                    </div>
+/* ===================== HERO ===================== */
+.hero { min-height: 92vh; background: var(--navy); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px 24px 60px; position: relative; overflow: hidden; }
 
-                    <div class="product-card" onclick="openModal('modal50w')">
-                        <div class="card-img-wrap">
-                            <img src="50w-thumb.png" alt="50W SSPA">
-                        </div>
-                        <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
-                            <div class="card-watt">50<span>W</span></div>
-                            <div class="card-quick-specs">
-                                <span>+47 dBm</span>
-                                <span>GaN</span>
-                                <span>10 kg</span>
-                            </div>
-                            <span class="card-tag ku" data-tr="Orta Ölçek" data-en="Mid-Range">Orta Ölçek</span>
-                        </div>
-                        <div class="card-action">
-                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <div class="card-glow ku"></div>
-                    </div>
+.hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,168,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,168,255,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
 
-                    <div class="product-card" onclick="openModal('modal100w')">
-                        <div class="card-img-wrap">
-                            <img src="100w-thumb.png" alt="100W SSPA">
-                        </div>
-                        <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
-                            <div class="card-watt">100<span>W</span></div>
-                            <div class="card-quick-specs">
-                                <span>+50 dBm</span>
-                                <span>GaN</span>
-                                <span>15 kg</span>
-                            </div>
-                            <span class="card-tag ku" data-tr="Kurumsal" data-en="Enterprise">Kurumsal</span>
-                        </div>
-                        <div class="card-action">
-                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <div class="card-glow ku"></div>
-                    </div>
+/* Radar animasyonu */
+.hero-radar {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+}
 
-                    <div class="product-card" onclick="openModal('modal200w')">
-                        <div class="card-img-wrap">
-                            <img src="200w-thumb.png" alt="200W SSPA">
-                        </div>
-                        <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
-                            <div class="card-watt">200<span>W</span></div>
-                            <div class="card-quick-specs">
-                                <span>+53.2 dBm</span>
-                                <span>GaN</span>
-                                <span>20 kg</span>
-                            </div>
-                            <span class="card-tag ku" data-tr="Yüksek Güç" data-en="High Power">Yüksek Güç</span>
-                        </div>
-                        <div class="card-action">
-                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <div class="card-glow ku"></div>
-                    </div>
+.hero-radar svg { width: 100%; height: 100%; }
 
-                    <div class="product-card" onclick="openModal('modal400w')">
-                        <div class="card-img-wrap">
-                            <img src="400w-thumb.png" alt="400W SSPA">
-                        </div>
-                        <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
-                            <div class="card-watt">400<span>W</span></div>
-                            <div class="card-quick-specs">
-                                <span>GaN</span>
-                            </div>
-                            <span class="card-tag ku" data-tr="Maksimum Güç" data-en="Maximum Power">Maksimum Güç</span>
-                        </div>
-                        <div class="card-action">
-                            <span data-tr="Detaylar" data-en="Details">Detaylar</span>
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <div class="card-glow ku"></div>
-                    </div>
+.radar-ring {
+    fill: none;
+    stroke: #00a8ff;
+    stroke-width: 1;
+    animation: radarPulse 3s ease-out infinite;
+}
 
-                </div>
-            </div>
+@keyframes radarPulse {
+    0%   { opacity: 0.8; stroke-width: 1.5; }
+    100% { opacity: 0; stroke-width: 0.5; }
+}
 
-            <p class="solutions-footnote">
-                <span data-tr="Teknik detay ve fiyat teklifi için bizimle iletişime geçin." data-en="Contact us for technical specifications and pricing.">Teknik detay ve fiyat teklifi için bizimle iletişime geçin.</span>
-                &nbsp;→&nbsp;<a href="#iletisim" data-tr="Bize Ulaşın" data-en="Get in Touch">Bize Ulaşın</a>
-            </p>
-        </div>
-    </section>
+.radar-sweep {
+    fill: url(#sweepGrad);
+    animation: radarRotate 4s linear infinite;
+    transform-origin: 300px 300px;
+    fill: rgba(0,168,255,0.15);
+}
 
-    <!-- NEDEN GANSAT -->
-    <section class="why-section">
-        <div class="container">
-            <div class="why-header">
-                <div class="section-tag light" data-tr="Neden Gansat?" data-en="Why Gansat?">Neden Gansat?</div>
-                <h2 class="why-title" data-tr="Farkımızı Yaratan<br>Değerler" data-en="The Values That<br>Set Us Apart">Farkımızı Yaratan<br>Değerler</h2>
-            </div>
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="20" stroke="#00a8ff" stroke-width="1.5" opacity="0.3"/>
-                            <path d="M24 8 L28 18 L39 18 L30 25 L33 36 L24 29 L15 36 L18 25 L9 18 L20 18 Z" fill="#00a8ff" opacity="0.9"/>
-                        </svg>
-                    </div>
-                    <h3 data-tr="Türkiye'nin İlk Yerli SSPA Üreticisi" data-en="Turkey's First Domestic SSPA Manufacturer">Türkiye'nin İlk Yerli SSPA Üreticisi</h3>
-                    <p data-tr="Yurt içinde üretilen SSPA teknolojisiyle ithalat bağımlılığını azaltıyor, Türkiye'nin teknolojik bağımsızlığına katkı sağlıyoruz." data-en="With domestically manufactured SSPA technology, we reduce import dependency and contribute to Turkey's technological independence.">Yurt içinde üretilen SSPA teknolojisiyle ithalat bağımlılığını azaltıyor, Türkiye'nin teknolojik bağımsızlığına katkı sağlıyoruz.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="20" stroke="#00a8ff" stroke-width="1.5" opacity="0.3"/>
-                            <path d="M12 24 L20 32 L36 16" stroke="#00a8ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M24 8 L24 4M24 44 L24 40M8 24 L4 24M44 24 L40 24" stroke="#00a8ff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-                        </svg>
-                    </div>
-                    <h3 data-tr="GaN Teknolojisi ile Yüksek Verim" data-en="High Efficiency with GaN Technology">GaN Teknolojisi ile Yüksek Verim</h3>
-                    <p data-tr="Gallium Nitride tabanlı tasarımlarımız; düşük güç tüketimi, yüksek güvenilirlik ve uzun ürün ömrü sunuyor." data-en="Our Gallium Nitride-based designs deliver low power consumption, high reliability and long product life.">Gallium Nitride tabanlı tasarımlarımız; düşük güç tüketimi, yüksek güvenilirlik ve uzun ürün ömrü sunuyor.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="20" stroke="#00a8ff" stroke-width="1.5" opacity="0.3"/>
-                            <circle cx="24" cy="24" r="6" stroke="#00a8ff" stroke-width="1.5"/>
-                            <circle cx="24" cy="24" r="11" stroke="#00a8ff" stroke-width="1" opacity="0.6"/>
-                            <circle cx="24" cy="24" r="16" stroke="#00a8ff" stroke-width="1" opacity="0.3"/>
-                            <line x1="24" y1="8" x2="24" y2="13" stroke="#00a8ff" stroke-width="1.5" stroke-linecap="round"/>
-                            <line x1="24" y1="35" x2="24" y2="40" stroke="#00a8ff" stroke-width="1.5" stroke-linecap="round"/>
-                            <line x1="8" y1="24" x2="13" y2="24" stroke="#00a8ff" stroke-width="1.5" stroke-linecap="round"/>
-                            <line x1="35" y1="24" x2="40" y2="24" stroke="#00a8ff" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3 data-tr="20W'dan 400W'a Geniş Güç Aralığı" data-en="Wide Power Range from 20W to 400W">20W'dan 400W'a Geniş Güç Aralığı</h3>
-                    <p data-tr="Taşınabilir sistemlerden büyük ölçekli altyapılara kadar her ihtiyaca uygun model sunuyoruz." data-en="We offer models suitable for every need, from portable systems to large-scale infrastructure.">Taşınabilir sistemlerden büyük ölçekli altyapılara kadar her ihtiyaca uygun model sunuyoruz.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="20" stroke="#00a8ff" stroke-width="1.5" opacity="0.3"/>
-                            <path d="M16 24 L24 16 L32 24" stroke="#00a8ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M24 16 L24 32" stroke="#00a8ff" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M14 36 L34 36" stroke="#00a8ff" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3 data-tr="Teknik Destek & Hızlı Teslimat" data-en="Technical Support & Fast Delivery">Teknik Destek & Hızlı Teslimat</h3>
-                    <p data-tr="Uzman mühendis ekibimiz satış öncesi ve sonrası teknik destek sunuyor. Yerli üretimin avantajıyla hızlı teslimat sağlıyoruz." data-en="Our expert engineering team provides pre and post-sales technical support. We ensure fast delivery with the advantage of local manufacturing.">Uzman mühendis ekibimiz satış öncesi ve sonrası teknik destek sunuyor. Yerli üretimin avantajıyla hızlı teslimat sağlıyoruz.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+.radar-sweep-line {
+    stroke: #00a8ff;
+    stroke-width: 1.5;
+    animation: radarRotate 4s linear infinite;
+    transform-origin: 300px 300px;
+    opacity: 0.6;
+}
 
-    <!-- DALGA GEÇİŞİ -->
-    <div class="wave-divider">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
-            <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
-        </svg>
-    </div>
+@keyframes radarRotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
 
-    <!-- KURUMSAL -->
-    <section id="kurumsal" class="about-section">
-        <div class="container about-grid">
-            <div class="about-left">
-                <div class="section-tag" data-tr="Kurumsal" data-en="About Us">Kurumsal</div>
-                <h2 data-tr="Türkiye'nin<br>SSPA Öncüsü" data-en="Turkey's Pioneer<br>in SSPA Manufacturing">Türkiye'nin<br>SSPA Öncüsü</h2>
-            </div>
-            <div class="about-right">
-                <p data-tr="Gansat Teknoloji olarak, Türkiye'de bir ilki gerçekleştiriyor ve yerli SSPA (Solid State Power Amplifier) üretimini başarıyla sürdürüyoruz. 20W'dan 400W'a uzanan Ku-Band BUC/SSPA modellerimizle sektöre yüksek performanslı, yerli teknoloji çözümleri sunuyor; ithalat bağımlılığını azaltarak Türkiye'nin teknolojik bağımsızlığına katkı sağlıyoruz." data-en="At Gansat Technology, we are pioneering the first domestic SSPA (Solid State Power Amplifier) manufacturing in Turkey. With our Ku-Band BUC/SSPA models ranging from 20W to 400W, we deliver high-performance, locally developed solutions to the sector — reducing import dependency and contributing to Turkey's technological independence.">Gansat Teknoloji olarak, Türkiye'de bir ilki gerçekleştiriyor ve yerli SSPA (Solid State Power Amplifier) üretimini başarıyla sürdürüyoruz. 20W'dan 400W'a uzanan Ku-Band BUC/SSPA modellerimizle sektöre yüksek performanslı, yerli teknoloji çözümleri sunuyor; ithalat bağımlılığını azaltarak Türkiye'nin teknolojik bağımsızlığına katkı sağlıyoruz.</p>
-                <p style="margin-top: 16px;" data-tr="GaN teknolojisi tabanlı ürünlerimiz; yüksek verim, düşük güç tüketimi ve uzun ömürlü güvenilirlik sunuyor. Güçlü mühendislik altyapımızla teknolojiyi geliştirmeye, hizmet ağımızı genişletmeye ve sektöre katma değer üretmeye devam ediyoruz." data-en="Our GaN-based products deliver high efficiency, low power consumption and long-term reliability. With a strong engineering foundation, we continue to advance our technology, expand our service network and create lasting value for the industry.">GaN teknolojisi tabanlı ürünlerimiz; yüksek verim, düşük güç tüketimi ve uzun ömürlü güvenilirlik sunuyor. Güçlü mühendislik altyapımızla teknolojiyi geliştirmeye, hizmet ağımızı genişletmeye ve sektöre katma değer üretmeye devam ediyoruz.</p>
-            </div>
-        </div>
-    </section>
+.hero-content { position: relative; z-index: 1; max-width: 860px; }
 
-    <!-- GALERİ -->
-    <section class="gallery-section">
-        <div class="container">
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="resim1.png" alt="Gansat Teknoloji">
-                </div>
-                <div class="gallery-item">
-                    <img src="resim2.png" alt="Gansat Teknoloji">
-                </div>
-            </div>
-        </div>
-    </section>
+.hero-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-bright); border: 1px solid rgba(0,168,255,0.3); padding: 6px 16px; border-radius: 20px; margin-bottom: 28px; }
 
-    <!-- MODALLER - Ku-Band -->
-    <div id="modal20w" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal20w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-            <div class="modal-band-tag ku">Ku-Band · GaN</div>
-            <h3>20W SSPA</h3>
-            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, taşınabilir ve mobil uygulamalar için idealdir." data-en="L-to-Ku Band Block Up Converter based on GaN technology. Ideal for portable and mobile applications.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, taşınabilir ve mobil uygulamalar için idealdir.</p>
-            <div class="modal-specs">
-                <div class="spec-row"><span data-tr="RF Frekans" data-en="RF Frequency">RF Frekans</span><strong>13.75 – 14.50 GHz</strong></div>
-                <div class="spec-row"><span data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</span><strong>20W (+43 dBm)</strong></div>
-                <div class="spec-row"><span data-tr="Güç Tüketimi" data-en="Power Consumption">Güç Tüketimi</span><strong>92W typ.</strong></div>
-                <div class="spec-row"><span data-tr="Besleme" data-en="Power Supply">Besleme</span><strong>15 – 60 VDC</strong></div>
-                <div class="spec-row"><span data-tr="Kazanç" data-en="Gain">Kazanç</span><strong>65 dB min, 68 dB nom.</strong></div>
-                <div class="spec-row"><span data-tr="Boyut" data-en="Dimensions">Boyut</span><strong>230 × 160 × 160 mm</strong></div>
-                <div class="spec-row"><span data-tr="Ağırlık" data-en="Weight">Ağırlık</span><strong>4.5 kg</strong></div>
-            </div>
-            <a href="20w-sspa.html" class="modal-detail-btn" data-tr="Tam Teknik Özellikler →" data-en="Full Specifications →">Tam Teknik Özellikler →</a>
-        </div>
-    </div>
+.hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800; color: var(--white); line-height: 1.05; margin-bottom: 24px; letter-spacing: -0.01em; }
 
-    <div id="modal50w" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal50w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-            <div class="modal-band-tag ku">Ku-Band · GaN</div>
-            <h3>50W SSPA</h3>
-            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, uydu uplink uygulamaları için tasarlanmıştır." data-en="L-to-Ku Band Block Up Converter based on GaN technology. Designed for satellite uplink applications.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, uydu uplink uygulamaları için tasarlanmıştır.</p>
-            <div class="modal-specs">
-                <div class="spec-row"><span data-tr="RF Frekans" data-en="RF Frequency">RF Frekans</span><strong>13.75 – 14.50 GHz</strong></div>
-                <div class="spec-row"><span data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</span><strong>50W (+47 dBm)</strong></div>
-                <div class="spec-row"><span data-tr="Güç Tüketimi" data-en="Power Consumption">Güç Tüketimi</span><strong>200W typ.</strong></div>
-                <div class="spec-row"><span data-tr="Besleme" data-en="Power Supply">Besleme</span><strong>15 – 60 VDC</strong></div>
-                <div class="spec-row"><span data-tr="Kazanç" data-en="Gain">Kazanç</span><strong>65 dB min, 68 dB nom.</strong></div>
-                <div class="spec-row"><span data-tr="Boyut" data-en="Dimensions">Boyut</span><strong>250 × 190 × 170 mm</strong></div>
-                <div class="spec-row"><span data-tr="Ağırlık" data-en="Weight">Ağırlık</span><strong>10 kg</strong></div>
-            </div>
-            <a href="50w-sspa.html" class="modal-detail-btn" data-tr="Tam Teknik Özellikler →" data-en="Full Specifications →">Tam Teknik Özellikler →</a>
-        </div>
-    </div>
+.hero p { font-size: 1.05rem; color: rgba(255,255,255,0.6); max-width: 660px; margin: 0 auto 40px; font-weight: 300; line-height: 1.75; }
 
-    <div id="modal100w" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal100w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-            <div class="modal-band-tag ku">Ku-Band · GaN</div>
-            <h3>100W SSPA</h3>
-            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, kurumsal uydu uplink uygulamaları için idealdir." data-en="L-to-Ku Band Block Up Converter based on GaN technology. Ideal for enterprise satellite uplink applications.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, kurumsal uydu uplink uygulamaları için idealdir.</p>
-            <div class="modal-specs">
-                <div class="spec-row"><span data-tr="RF Frekans" data-en="RF Frequency">RF Frekans</span><strong>13.75 – 14.50 GHz</strong></div>
-                <div class="spec-row"><span data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</span><strong>100W (+50 dBm)</strong></div>
-                <div class="spec-row"><span data-tr="Güç Tüketimi" data-en="Power Consumption">Güç Tüketimi</span><strong>500W typ.</strong></div>
-                <div class="spec-row"><span data-tr="Besleme" data-en="Power Supply">Besleme</span><strong>15 – 60 VDC</strong></div>
-                <div class="spec-row"><span data-tr="Kazanç" data-en="Gain">Kazanç</span><strong>65 dB min, 68 dB nom.</strong></div>
-                <div class="spec-row"><span data-tr="Boyut" data-en="Dimensions">Boyut</span><strong>330 × 220 × 220 mm</strong></div>
-                <div class="spec-row"><span data-tr="Ağırlık" data-en="Weight">Ağırlık</span><strong>15 kg</strong></div>
-            </div>
-            <a href="100w-sspa.html" class="modal-detail-btn" data-tr="Tam Teknik Özellikler →" data-en="Full Specifications →">Tam Teknik Özellikler →</a>
-        </div>
-    </div>
+.btn-primary { display: inline-block; padding: 14px 32px; background: var(--blue-bright); color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; border-radius: 6px; transition: background 0.2s, transform 0.2s; }
+.btn-primary:hover { background: #008fdb; transform: translateY(-2px); }
 
-    <div id="modal200w" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal200w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-            <div class="modal-band-tag ku">Ku-Band · GaN</div>
-            <h3>200W SSPA</h3>
-            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. Yüksek verimli GaN solid-state tasarım, zorlu ortamlarda güvenilir yüksek güç sağlar." data-en="L-to-Ku Band Block Up Converter. High-efficiency GaN solid-state design delivers reliable high power in the toughest environments.">L-to-Ku Band Block Up Converter. Yüksek verimli GaN solid-state tasarım, zorlu ortamlarda güvenilir yüksek güç sağlar.</p>
-            <div class="modal-specs">
-                <div class="spec-row"><span data-tr="RF Frekans" data-en="RF Frequency">RF Frekans</span><strong>13.75 – 14.50 GHz</strong></div>
-                <div class="spec-row"><span data-tr="Çıkış Gücü" data-en="Output Power">Çıkış Gücü</span><strong>200W (+53.2 dBm)</strong></div>
-                <div class="spec-row"><span data-tr="Güç Tüketimi" data-en="Power Consumption">Güç Tüketimi</span><strong>1170W typ.</strong></div>
-                <div class="spec-row"><span data-tr="Besleme" data-en="Power Supply">Besleme</span><strong>15 – 60 VDC</strong></div>
-                <div class="spec-row"><span data-tr="Kazanç" data-en="Gain">Kazanç</span><strong>65 dB min, 68 dB nom.</strong></div>
-                <div class="spec-row"><span data-tr="Boyut" data-en="Dimensions">Boyut</span><strong>350 × 300 × 210 mm</strong></div>
-                <div class="spec-row"><span data-tr="Ağırlık" data-en="Weight">Ağırlık</span><strong>20 kg</strong></div>
-            </div>
-            <a href="200w-sspa.html" class="modal-detail-btn" data-tr="Tam Teknik Özellikler →" data-en="Full Specifications →">Tam Teknik Özellikler →</a>
-        </div>
-    </div>
+.hero-stats { position: relative; z-index: 1; display: flex; align-items: center; gap: 32px; margin-top: 72px; padding: 24px 40px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; margin-bottom: 0; flex-wrap: wrap; justify-content: center; }
 
-    <div id="modal400w" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal400w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-            <div class="modal-band-tag ku">Ku-Band · GaN</div>
-            <h3>400W SSPA</h3>
-            <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı maksimum güç çözümü." data-en="L-to-Ku Band Block Up Converter based on GaN technology. Maximum power solution.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı maksimum güç çözümü.</p>
-            <p class="modal-contact-note" data-tr="Teknik detaylar yakında eklenecektir. Bilgi için bizimle iletişime geçin." data-en="Technical specifications coming soon. Contact us for more information.">Teknik detaylar yakında eklenecektir. Bilgi için bizimle iletişime geçin.</p>
-            <a href="#iletisim" class="modal-detail-btn" onclick="closeModal('modal400w')" data-tr="İletişime Geçin →" data-en="Get in Touch →">İletişime Geçin →</a>
-        </div>
-    </div>
+.stat { text-align: center; }
+.stat-num { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; color: var(--white); line-height: 1; }
+.stat-label { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+.stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.1); }
 
-    <!-- İLETİŞİM -->
-    <section id="iletisim" class="contact-section">
-        <div class="container">
-            <div class="section-tag" data-tr="İletişim" data-en="Contact">İletişim</div>
-            <h2 class="contact-title" data-tr="Bize Ulaşın" data-en="Get in Touch">Bize Ulaşın</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <span class="info-label" data-tr="Adres" data-en="Address">Adres</span>
-                        <p>Tepeören Mah. Demokrasi Caddesi No: 153/1<br>34959 Tuzla / İstanbul</p>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">E-posta</span>
-                        <p><a href="mailto:sales@gansat.com.tr">sales@gansat.com.tr</a></p>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label" data-tr="Telefon" data-en="Phone">Telefon</span>
-                        <p><a href="tel:+905412763946">+90 (541) 276 39 46</a></p>
-                    </div>
-                    <div class="map-wrap">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d266.5212984850719!2d29.387762975449174!3d40.90820614022374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cad9973e9e8f6b%3A0x8647b000cfebcb8f!2sGANSAT%20TEKNOLOJi!5e0!3m2!1sen!2str!4v1776511914690!5m2!1sen!2str"
-                            width="100%"
-                            height="220"
-                            style="border:0; display: block;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-                <div class="contact-form-box">
-                    <form>
-                        <div class="form-group">
-                            <label data-tr="Adınız Soyadınız" data-en="Full Name">Adınız Soyadınız</label>
-                            <input type="text" required>
-                        </div>
-                        <div class="form-group">
-                            <label>E-posta</label>
-                            <input type="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label data-tr="Konu" data-en="Subject">Konu</label>
-                            <input type="text" required>
-                        </div>
-                        <div class="form-group">
-                            <label data-tr="Mesajınız" data-en="Message">Mesajınız</label>
-                            <textarea rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit" data-tr="Gönder" data-en="Send">Gönder</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+/* ===================== KURUMSAL ===================== */
+/* ===================== NEDEN GANSAT ===================== */
+.why-section {
+    padding: 80px 0;
+    background: var(--navy);
+    position: relative;
+    z-index: 1;
+}
 
-    <footer>
-        <div class="container footer-inner">
-            <div class="logo" style="font-size:1.1rem;">GANSAT<span>TEKNOLOJİ</span></div>
-            <p>&copy; 2023 Gansat Teknoloji. <span data-tr="Tüm Hakları Saklıdır." data-en="All Rights Reserved.">Tüm Hakları Saklıdır.</span></p>
-        </div>
-    </footer>
+.why-header {
+    margin-bottom: 48px;
+}
 
-    <script>
-        function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
-        function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
-        window.addEventListener('click', function(e) { if (e.target.classList.contains('modal')) { e.target.classList.remove('open'); document.body.style.overflow = ''; } });
-        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.querySelectorAll('.modal.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; }); } });
-        function setLang(lang) {
-            document.documentElement.lang = lang;
-            document.querySelectorAll('[data-tr]').forEach(el => { const t = el.getAttribute('data-' + lang); if (t) el.innerHTML = t; });
-            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-        }
-        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.08 });
-        document.querySelectorAll('.product-card, .gallery-item, .about-grid').forEach(el => observer.observe(el));
-    </script>
-</body>
-</html>
+.why-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-top: 12px;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.why-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,168,255,0.15);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.why-card:hover {
+    background: rgba(0,168,255,0.06);
+    border-color: rgba(0,168,255,0.4);
+    transform: translateY(-3px);
+}
+
+.why-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+}
+
+.why-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.why-card p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+@media (max-width: 900px) {
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+    .why-grid { grid-template-columns: 1fr; }
+}
+
+.wave-divider {
+    background: var(--navy);
+    line-height: 0;
+    margin-bottom: -2px;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 80px;
+}
+
+#kurumsal, #cozumler, #iletisim {
+    scroll-margin-top: 64px;
+}
+
+.about-section { padding: 20px 0 100px; background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center; }
+
+.section-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); border: 1px solid rgba(0,119,204,0.25); padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; }
+.section-tag.light { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.15); }
+
+.about-left h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--navy); line-height: 1.1; letter-spacing: -0.01em; }
+.about-right p { font-size: 1rem; color: var(--text-muted); line-height: 1.85; font-weight: 300; }
+
+/* Scroll reveal */
+.product-card, .gallery-item, .about-grid { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.product-card.visible, .gallery-item.visible, .about-grid.visible { opacity: 1; transform: none; }
+.product-card:nth-child(2) { transition-delay: 0.08s; }
+.product-card:nth-child(3) { transition-delay: 0.16s; }
+.product-card:nth-child(4) { transition-delay: 0.24s; }
+
+/* ===================== GALERİ ===================== */
+.gallery-section { padding: 0 0 80px; background: var(--white); }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.gallery-item { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 16/9; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.gallery-item:hover img { transform: scale(1.03); }
+
+/* ===================== ÇÖZÜMLER ===================== */
+.solutions-section { 
+    padding: 60px 0 0; 
+    background: var(--navy);
+    position: relative; 
+    overflow: hidden; 
+}
+
+.solutions-section::after { content: none; }
+.solutions-section::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,168,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,168,255,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
+
+.solutions-header { margin-bottom: 56px; position: relative; z-index: 1; }
+.solutions-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: var(--white); letter-spacing: -0.01em; line-height: 1.1; }
+.solutions-title em { font-style: normal; color: var(--blue-bright); }
+
+.band-group { margin-bottom: 56px; position: relative; z-index: 1; }
+.band-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.band-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.band-dot.ku { background: var(--blue-bright); box-shadow: 0 0 8px rgba(0,168,255,0.6); }
+.band-dot.c  { background: var(--teal); box-shadow: 0 0 8px rgba(0,201,167,0.6); }
+.band-label { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.9); }
+.band-freq { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+.band-desc { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin: 0 0 24px 20px; letter-spacing: 0.04em; }
+
+/* Kart ızgarası */
+.products-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+/* Ürün kartı - yatay düzen */
+.product-card {
+    background: rgba(255,255,255,0.97);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    display: grid;
+    grid-template-columns: 300px 1fr auto;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.08);
+    min-height: 200px;
+}
+
+.product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+.product-card.featured { border: 2px solid var(--blue-bright); }
+
+/* Görsel alanı — şeffaf PNG için koyu arka plan */
+.card-img-wrap {
+    height: 100%;
+    min-height: 200px;
+    background: var(--navy-mid, #002d5a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 48px 24px 32px;
+    overflow: hidden;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+}
+
+.card-img-wrap img {
+    max-width: 100%;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+}
+
+.product-card:hover .card-img-wrap img { transform: scale(1.06); }
+
+.badge-top { position: absolute; top: 0; left: 16px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; background: var(--blue-bright); color: var(--white); border-radius: 0 0 6px 6px; z-index: 1; }
+
+.card-inner { padding: 20px 24px; }
+.card-type { font-size: 10px; font-weight: 700; color: #aab4c4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+
+.card-watt { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 8px; }
+.card-watt span { font-size: 1.4rem; font-weight: 600; color: var(--text-muted); }
+
+.card-quick-specs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.card-quick-specs span { font-size: 11px; font-weight: 600; color: var(--text-muted); background: #f0f2f5; padding: 3px 8px; border-radius: 4px; }
+
+.card-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; }
+.card-tag.ku { background: #dceefb; color: #0a4a80; }
+.card-tag.c  { background: #d0f5ee; color: #0a5a4a; }
+
+.card-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 0.04em;
+    border-left: 1px solid #f0f2f5;
+    height: 100%;
+    min-width: 100px;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.product-card:hover .card-action { background: #f0f7ff; }
+
+.card-glow { display: none; }
+
+.solutions-footnote { font-size: 13px; color: rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px; margin-top: 8px; position: relative; z-index: 1; }
+.solutions-footnote a { color: var(--blue-bright); text-decoration: none; font-weight: 500; }
+.solutions-footnote a:hover { text-decoration: underline; }
+
+/* ===================== MODAL ===================== */
+.modal { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(0,15,35,0.85); backdrop-filter: blur(4px); align-items: center; justify-content: center; }
+.modal.open { display: flex; }
+
+.modal-content { background: var(--white); border-radius: 14px; padding: 36px; width: 90%; max-width: 500px; position: relative; animation: modalIn 0.2s ease; max-height: 90vh; overflow-y: auto; }
+
+@keyframes modalIn { from { opacity: 0; transform: scale(0.96) translateY(12px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+.modal-close { position: absolute; top: 16px; right: 16px; background: #f0f2f5; border: none; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #6b7a90; transition: background 0.15s, color 0.15s; }
+.modal-close:hover { background: #e2e8f0; color: var(--navy); }
+
+.modal-band-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 4px; margin-bottom: 10px; }
+.modal-band-tag.ku { background: #dceefb; color: #0a4a80; }
+.modal-band-tag.c  { background: #d0f5ee; color: #0a5a4a; }
+
+.modal-content h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+.modal-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
+.modal-contact-note { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 16px; font-style: italic; }
+
+.modal-specs { display: flex; flex-direction: column; margin-bottom: 20px; }
+.spec-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #f0f2f5; font-size: 0.88rem; }
+.spec-row:last-child { border-bottom: none; }
+.spec-row span { color: var(--text-muted); }
+.spec-row strong { color: var(--navy); font-weight: 600; }
+
+.modal-detail-btn { display: block; text-align: center; padding: 12px; background: var(--navy); color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em; border-radius: 6px; transition: background 0.2s; }
+.modal-detail-btn:hover { background: var(--blue-bright); }
+
+/* ===================== İLETİŞİM ===================== */
+.contact-section { padding: 100px 0; background: var(--white); }
+.contact-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--navy); margin-bottom: 48px; letter-spacing: -0.01em; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
+
+.info-item { margin-bottom: 28px; }
+.info-label { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+.contact-info p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+.contact-info a { color: var(--blue); text-decoration: none; }
+.contact-info a:hover { text-decoration: underline; }
+
+.map-wrap { width: 100%; margin-top: 8px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+
+.contact-form-box { background: var(--off-white); border: 1px solid var(--border); border-radius: 12px; padding: 36px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px 16px; background: var(--white); border: 1px solid var(--border); border-radius: 6px; font-family: 'Barlow', sans-serif; font-size: 0.95rem; color: var(--text); transition: border-color 0.2s; outline: none; resize: vertical; }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--blue-bright); }
+
+.btn-submit { width: 100%; padding: 14px; background: var(--navy); color: var(--white); border: none; border-radius: 6px; font-family: 'Barlow', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+.btn-submit:hover { background: var(--blue-bright); }
+
+/* ===================== FOOTER ===================== */
+footer { padding: 32px 0; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+/* ===================== MOBİL ===================== */
+@media (max-width: 1100px) {
+    .products-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1000px) {
+    .products-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    nav { flex-wrap: wrap; gap: 10px; height: auto; padding: 12px 0; }
+    .nav-links { gap: 16px; }
+    .hero { padding: 60px 24px 0; }
+    .hero-stats { gap: 20px; padding: 18px 24px; }
+    .stat-divider { display: none; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+    .c-band-grid { max-width: 100%; }
+}
+
+@media (max-width: 600px) {
+    .product-card { grid-template-columns: 1fr; }
+    .card-img-wrap { min-height: 160px; }
+    .card-action { flex-direction: row; border-left: none; border-top: 1px solid #f0f2f5; height: auto; }
+}
+
+@media (max-width: 520px) {
+    .modal-content { padding: 24px 18px; }
+}
