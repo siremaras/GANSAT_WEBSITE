@@ -503,6 +503,104 @@ nav { display: flex; justify-content: space-between; align-items: center; height
 .btn-submit { width: 100%; padding: 14px; background: var(--navy); color: var(--white); border: none; border-radius: 6px; font-family: 'Barlow', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
 .btn-submit:hover { background: var(--blue-bright); }
 
+/* ===================== SCROLL TO TOP ===================== */
+.scroll-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    background: var(--blue-bright);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,168,255,0.4);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.3s, transform 0.3s, background 0.2s;
+    z-index: 999;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top:hover { background: #008fdb; }
+
+/* ===================== ACTIVE NAV ===================== */
+.nav-links a.active-nav {
+    color: var(--white);
+    position: relative;
+}
+
+.nav-links a.active-nav::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--blue-bright);
+    border-radius: 2px;
+}
+
+/* ===================== LOADING ===================== */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: var(--navy);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.04em;
+}
+
+.loader-logo span {
+    color: var(--blue-bright);
+    font-weight: 400;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loader-fill {
+    height: 100%;
+    background: var(--blue-bright);
+    border-radius: 2px;
+    animation: loaderFill 1.2s ease forwards;
+}
+
+@keyframes loaderFill {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
 /* ===================== SERTİFİKALAR ===================== */
 .certs-section {
     padding: 32px 0;
