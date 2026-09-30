@@ -29,6 +29,18 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-bg-grid"></div>
+
+        <!-- Animasyonlu radar/sinyal dalgası -->
+        <div class="hero-radar">
+            <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <circle class="radar-ring" cx="300" cy="300" r="80"/>
+                <circle class="radar-ring" cx="300" cy="300" r="150" style="animation-delay: 0.6s"/>
+                <circle class="radar-ring" cx="300" cy="300" r="220" style="animation-delay: 1.2s"/>
+                <circle class="radar-ring" cx="300" cy="300" r="290" style="animation-delay: 1.8s"/>
+                <line class="radar-sweep-line" x1="300" y1="300" x2="300" y2="10"/>
+                <path class="radar-sweep" d="M300,300 L300,10 A290,290 0 0,1 590,300 Z"/>
+            </svg>
+        </div>
         <div class="hero-content">
             <div class="hero-tag" data-tr="Yerli & Milli SSPA Üretimi · Türkiye" data-en="Domestic SSPA Manufacturing · Turkey">Yerli &amp; Milli SSPA Üretimi · Türkiye</div>
             <h1 data-tr="Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü" data-en="Domestic Technology Power<br>in Satellite Communications">Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü</h1>
@@ -63,7 +75,7 @@
         <div class="container">
             <div class="solutions-header">
                 <div class="section-tag light" data-tr="Ürün Ailesi" data-en="Product Family">Ürün Ailesi</div>
-                <h2 class="solutions-title">BUC / SSPA <em>Manufacturing</em></h2>
+                <h2 class="solutions-title" data-tr="BUC / SSPA <em>Üretimi</em>" data-en="BUC / SSPA <em>Manufacturing</em>">BUC / SSPA <em>Üretimi</em></h2>
             </div>
 
             <!-- KU-BAND -->
