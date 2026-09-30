@@ -516,6 +516,17 @@
         </div>
     </footer>
 
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 15V5M5 10l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <!-- LOADING EKRANI -->
+    <div class="loader" id="loader">
+        <div class="loader-logo">GANSAT<span>TEKNOLOJİ</span></div>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+
     <script>
         function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
@@ -527,6 +538,43 @@
             document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         }
+        /* Loading animasyonu */
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('loader-hidden');
+            }, 1200);
+        });
+
+        /* Scroll-to-top butonu */
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scrollTop');
+            if (window.scrollY > 400) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        /* Active nav link */
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active-nav');
+                }
+            });
+        });
+
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.08 });
         document.querySelectorAll('.product-card, .gallery-item, .about-grid').forEach(el => observer.observe(el));
 
