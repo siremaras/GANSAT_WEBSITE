@@ -179,6 +179,82 @@ nav { display: flex; justify-content: space-between; align-items: center; height
     .why-grid { grid-template-columns: 1fr; }
 }
 
+/* ===================== SAYAÇ BÖLÜMÜ ===================== */
+.stats-section {
+    padding: 80px 0;
+    background: var(--navy);
+    position: relative;
+    z-index: 1;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: rgba(0,168,255,0.1);
+    border: 1px solid rgba(0,168,255,0.15);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.stat-card {
+    background: rgba(0,10,30,0.6);
+    padding: 40px 32px;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.stat-card:hover { background: rgba(0,168,255,0.06); }
+
+.stat-card-num {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.counter {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+}
+
+.stat-card-suffix {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    color: var(--blue-bright);
+}
+
+.stat-card-text span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    color: var(--blue-bright);
+    line-height: 1;
+}
+
+.stat-card-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-card { padding: 28px 20px; }
+}
+
+@media (max-width: 400px) {
+    .stats-grid { grid-template-columns: 1fr; }
+}
+
 .wave-divider {
     background: var(--navy);
     line-height: 0;
