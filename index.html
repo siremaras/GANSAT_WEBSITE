@@ -47,27 +47,7 @@
             <p data-tr="Türkiye'de yerli SSPA üretimini gerçekleştiren Gansat Teknoloji, GaN teknolojisi tabanlı Ku-Band BUC/SSPA modellerimizle uydu haberleşme sektörüne yüksek performanslı ve güvenilir çözümler sunuyoruz." data-en="Gansat Technology — Turkey's domestic SSPA manufacturer. We deliver high-performance, reliable Ku-Band BUC/SSPA solutions to the satellite communications sector, powered by GaN technology.">Türkiye'de yerli SSPA üretimini gerçekleştiren Gansat Teknoloji, GaN teknolojisi tabanlı Ku-Band BUC/SSPA modellerimizle uydu haberleşme sektörüne yüksek performanslı ve güvenilir çözümler sunuyoruz.</p>
             <a href="#cozumler" class="btn-primary" data-tr="Ürünleri İnceleyin" data-en="Explore Products">Ürünleri İnceleyin</a>
         </div>
-        <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-num">5+</span>
-                <span class="stat-label" data-tr="Ku-Band Modeli" data-en="Ku-Band Models">Ku-Band Modeli</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-                <span class="stat-num">200W</span>
-                <span class="stat-label" data-tr="Maks. Çıkış Gücü" data-en="Max Output Power">Maks. Çıkış Gücü</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-                <span class="stat-num">GaN</span>
-                <span class="stat-label" data-tr="Teknoloji" data-en="Technology">Teknoloji</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-                <span class="stat-num" data-tr="Yerli" data-en="Local">Yerli</span>
-                <span class="stat-label" data-tr="Üretim" data-en="Manufacturing">Üretim</span>
-            </div>
-        </div>
+
     </section>
 
     <!-- ÜRÜNLER -->
@@ -258,6 +238,41 @@
                     </div>
                     <h3 data-tr="Teknik Destek & Hızlı Teslimat" data-en="Technical Support & Fast Delivery">Teknik Destek & Hızlı Teslimat</h3>
                     <p data-tr="Uzman mühendis ekibimiz satış öncesi ve sonrası teknik destek sunuyor. Yerli üretimin avantajıyla hızlı teslimat sağlıyoruz." data-en="Our expert engineering team provides pre and post-sales technical support. We ensure fast delivery with the advantage of local manufacturing.">Uzman mühendis ekibimiz satış öncesi ve sonrası teknik destek sunuyor. Yerli üretimin avantajıyla hızlı teslimat sağlıyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAYAÇ BÖLÜMÜ -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-num">
+                        <span class="counter" data-target="5">0</span>
+                        <span class="stat-card-suffix">+</span>
+                    </div>
+                    <div class="stat-card-label" data-tr="Ku-Band Modeli" data-en="Ku-Band Models">Ku-Band Modeli</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-num">
+                        <span class="counter" data-target="400">0</span>
+                        <span class="stat-card-suffix">W</span>
+                    </div>
+                    <div class="stat-card-label" data-tr="Maksimum Çıkış Gücü" data-en="Maximum Output Power">Maksimum Çıkış Gücü</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-num">
+                        <span class="counter" data-target="20">0</span>
+                        <span class="stat-card-suffix">W</span>
+                    </div>
+                    <div class="stat-card-label" data-tr="Minimum Çıkış Gücü" data-en="Minimum Output Power">Minimum Çıkış Gücü</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-num stat-card-text">
+                        <span data-tr="İlk" data-en="1st">İlk</span>
+                    </div>
+                    <div class="stat-card-label" data-tr="Türkiye'de Yerli SSPA Üreticisi" data-en="Domestic SSPA Manufacturer in Turkey">Türkiye'de Yerli SSPA Üreticisi</div>
                 </div>
             </div>
         </div>
@@ -462,6 +477,33 @@
         }
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.08 });
         document.querySelectorAll('.product-card, .gallery-item, .about-grid').forEach(el => observer.observe(el));
+
+        /* Sayaç animasyonu */
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-target'));
+            const duration = 1800;
+            const step = target / (duration / 16);
+            let current = 0;
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = Math.floor(current);
+            }, 16);
+        }
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.counter').forEach(animateCounter);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.stats-section').forEach(el => counterObserver.observe(el));
     </script>
 </body>
 </html>
