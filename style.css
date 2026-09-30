@@ -41,6 +41,8 @@ nav { display: flex; justify-content: space-between; align-items: center; height
 
 .hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,168,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,168,255,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
 
+.hero-particles { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+
 /* Radar animasyonu */
 .hero-radar {
     position: absolute;
