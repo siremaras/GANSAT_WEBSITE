@@ -281,6 +281,57 @@
     background: var(--navy);
 }
 
+/* ===================== VERSİYON TAB ===================== */
+.version-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 600px;
+}
+
+.vtab {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    border-right: 1px solid var(--border);
+    background: var(--off-white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    text-align: center;
+}
+
+.vtab:last-child { border-right: none; }
+
+.vtab.active {
+    background: var(--navy);
+    color: var(--white);
+}
+
+.vtab:hover:not(.active) { background: var(--border); color: var(--navy); }
+
+.version-content { display: none; }
+.version-content.active { display: block; }
+
+.version-model {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding: 8px 12px;
+    background: #f0f7ff;
+    border-radius: 6px;
+    display: inline-block;
+}
+
 /* ===================== MOBİL ===================== */
 @media (max-width: 768px) {
     .product-hero-grid { grid-template-columns: 1fr; gap: 32px; }
