@@ -793,16 +793,12 @@
 
         /* Modal tab geçişi */
         function switchTab(btn, tabId) {
-            var modal = btn.closest('.modal-content');
-            var tabs = modal.getElementsByClassName('mtab');
-            var contents = modal.getElementsByClassName('modal-tab-content');
+            // Tüm açık modalda mtab ve tab-content'leri bul
+            var allTabs = document.querySelectorAll('.modal.open .mtab');
+            var allContents = document.querySelectorAll('.modal.open .modal-tab-content');
             
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove('active');
-            }
-            for (var j = 0; j < contents.length; j++) {
-                contents[j].style.display = 'none';
-            }
+            allTabs.forEach(function(t) { t.classList.remove('active'); });
+            allContents.forEach(function(c) { c.style.display = 'none'; });
             
             btn.classList.add('active');
             var target = document.getElementById(tabId);
