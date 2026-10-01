@@ -480,6 +480,53 @@ nav { display: flex; justify-content: space-between; align-items: center; height
 .spec-row span { color: var(--text-muted); }
 .spec-row strong { color: var(--navy); font-weight: 600; }
 
+/* Modal Tabs */
+.modal-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+    background: var(--off-white);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.mtab {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.mtab.active {
+    background: var(--white);
+    color: var(--navy);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.mtab:hover:not(.active) { color: var(--navy); }
+
+.modal-tab-content { display: none; }
+.modal-tab-content.active { display: block; }
+
+.modal-model-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding: 6px 10px;
+    background: #f0f7ff;
+    border-radius: 4px;
+}
+
 .modal-detail-btn { display: block; text-align: center; padding: 12px; background: var(--navy); color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em; border-radius: 6px; transition: background 0.2s; }
 .modal-detail-btn:hover { background: var(--blue-bright); }
 
