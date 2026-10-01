@@ -700,7 +700,18 @@
     </div>
 
     <script>
-        function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function openModal(id) {
+            var modal = document.getElementById(id);
+            // Her açılışta ilk taba resetle
+            var tabs = modal.querySelectorAll('.mtab');
+            var contents = modal.querySelectorAll('.modal-tab-content');
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            contents.forEach(function(c) { c.style.display = 'none'; });
+            if (tabs.length > 0) tabs[0].classList.add('active');
+            if (contents.length > 0) contents[0].style.display = 'block';
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
         function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
         window.addEventListener('click', function(e) { if (e.target.classList.contains('modal')) { e.target.classList.remove('open'); document.body.style.overflow = ''; } });
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.querySelectorAll('.modal.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; }); } });
@@ -798,13 +809,10 @@
             if (target) target.style.display = 'block';
         }
         
-        /* Sayfa yüklenince tüm tab content'leri gizle, sadece active olanı göster */
+        /* Sayfa yüklenince tüm modal tab içeriklerini gizle */
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.modal-tab-content').forEach(function(el) {
                 el.style.display = 'none';
-            });
-            document.querySelectorAll('.modal-tab-content.active').forEach(function(el) {
-                el.style.display = 'block';
             });
         });
 
