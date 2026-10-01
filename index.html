@@ -568,7 +568,7 @@
                     <div class="spec-row"><span data-tr="Ağırlık" data-en="Weight">Ağırlık</span><strong>42 kg</strong></div>
                 </div>
             </div>
-            <a href="#iletisim" class="modal-detail-btn" onclick="closeModal('modal400w')" data-tr="Teklif Al →" data-en="Request a Quote →">Teklif Al →</a>
+            <a href="400w-sspa.html" class="modal-detail-btn" data-tr="Tam Teknik Özellikler →" data-en="Full Specifications →">Tam Teknik Özellikler →</a>
         </div>
     </div>
 
@@ -782,12 +782,31 @@
 
         /* Modal tab geçişi */
         function switchTab(btn, tabId) {
-            const modal = btn.closest('.modal-content');
-            modal.querySelectorAll('.mtab').forEach(t => t.classList.remove('active'));
-            modal.querySelectorAll('.modal-tab-content').forEach(t => t.classList.remove('active'));
+            var modal = btn.closest('.modal-content');
+            var tabs = modal.getElementsByClassName('mtab');
+            var contents = modal.getElementsByClassName('modal-tab-content');
+            
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            for (var j = 0; j < contents.length; j++) {
+                contents[j].style.display = 'none';
+            }
+            
             btn.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
+            var target = document.getElementById(tabId);
+            if (target) target.style.display = 'block';
         }
+        
+        /* Sayfa yüklenince tüm tab content'leri gizle, sadece active olanı göster */
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.modal-tab-content').forEach(function(el) {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll('.modal-tab-content.active').forEach(function(el) {
+                el.style.display = 'block';
+            });
+        });
 
         /* Form gönderimi */
         document.getElementById('contactForm').addEventListener('submit', function(e) {
