@@ -706,9 +706,9 @@
             var tabs = modal.querySelectorAll('.mtab');
             var contents = modal.querySelectorAll('.modal-tab-content');
             tabs.forEach(function(t) { t.classList.remove('active'); });
-            contents.forEach(function(c) { c.style.display = 'none'; });
+            contents.forEach(function(c) { c.classList.remove('active'); });
             if (tabs.length > 0) tabs[0].classList.add('active');
-            if (contents.length > 0) contents[0].style.display = 'block';
+            if (contents.length > 0) contents[0].classList.add('active');
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
@@ -793,24 +793,14 @@
 
         /* Modal tab geçişi */
         function switchTab(btn, tabId) {
-            // Tüm açık modalda mtab ve tab-content'leri bul
-            var allTabs = document.querySelectorAll('.modal.open .mtab');
-            var allContents = document.querySelectorAll('.modal.open .modal-tab-content');
-            
-            allTabs.forEach(function(t) { t.classList.remove('active'); });
-            allContents.forEach(function(c) { c.style.display = 'none'; });
-            
+            // Görünürlük CSS'teki .active sınıfıyla kontrol edilir (inline style değil)
+            var modal = btn.closest('.modal');
+            modal.querySelectorAll('.mtab').forEach(function(t) { t.classList.remove('active'); });
+            modal.querySelectorAll('.modal-tab-content').forEach(function(c) { c.classList.remove('active'); });
             btn.classList.add('active');
             var target = document.getElementById(tabId);
-            if (target) target.style.display = 'block';
+            if (target) target.classList.add('active');
         }
-        
-        /* Sayfa yüklenince tüm modal tab içeriklerini gizle */
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.modal-tab-content').forEach(function(el) {
-                el.style.display = 'none';
-            });
-        });
 
         /* Form gönderimi */
         document.getElementById('contactForm').addEventListener('submit', function(e) {
