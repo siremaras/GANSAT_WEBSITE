@@ -483,19 +483,19 @@ nav { display: flex; justify-content: space-between; align-items: center; height
 /* Modal Tabs */
 .modal-tabs {
     display: flex;
-    gap: 6px;
+    gap: 0;
     margin-bottom: 16px;
-    background: var(--off-white);
-    padding: 4px;
+    border: 1px solid var(--border);
     border-radius: 8px;
+    overflow: hidden;
 }
 
 .mtab {
     flex: 1;
-    padding: 8px 12px;
+    padding: 10px 14px;
     border: none;
-    background: none;
-    border-radius: 6px;
+    border-right: 1px solid var(--border);
+    background: var(--off-white);
     font-family: 'Barlow', sans-serif;
     font-size: 0.82rem;
     font-weight: 600;
@@ -504,16 +504,17 @@ nav { display: flex; justify-content: space-between; align-items: center; height
     transition: background 0.15s, color 0.15s;
 }
 
+.mtab:last-child { border-right: none; }
+
 .mtab.active {
-    background: var(--white);
-    color: var(--navy);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    background: var(--navy);
+    color: var(--white);
 }
 
-.mtab:hover:not(.active) { color: var(--navy); }
+.mtab:hover:not(.active) { background: var(--border); color: var(--navy); }
 
-.modal-tab-content { display: none; }
-.modal-tab-content.active { display: block; }
+.modal-tab-content { display: none !important; }
+.modal-tab-content.active { display: block !important; }
 
 .modal-model-name {
     font-size: 0.75rem;
