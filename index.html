@@ -135,7 +135,6 @@
                             <img src="20w-thumb.png" alt="20W SSPA">
                         </div>
                         <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
                             <div class="card-watt">20<span>W</span></div>
                             <div class="card-quick-specs">
                                 <span>+43 dBm</span>
@@ -156,7 +155,7 @@
                             <img src="50w-thumb.png" alt="50W SSPA">
                         </div>
                         <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
+
                             <div class="card-watt">50<span>W</span></div>
                             <div class="card-quick-specs">
                                 <span>+47 dBm</span>
@@ -177,7 +176,7 @@
                             <img src="100w-thumb.png" alt="100W SSPA">
                         </div>
                         <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
+
                             <div class="card-watt">100<span>W</span></div>
                             <div class="card-quick-specs">
                                 <span>+50 dBm</span>
@@ -198,7 +197,7 @@
                             <img src="200w-thumb.png" alt="200W SSPA">
                         </div>
                         <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
+
                             <div class="card-watt">200<span>W</span></div>
                             <div class="card-quick-specs">
                                 <span>+53.2 dBm</span>
@@ -219,7 +218,7 @@
                             <img src="400w-thumb.png" alt="400W SSPA">
                         </div>
                         <div class="card-inner">
-                            <p class="card-type">BUC / SSPA · Ku-Band</p>
+
                             <div class="card-watt">400<span>W</span></div>
                             <div class="card-quick-specs">
                                 <span>+56 dBm</span>
@@ -706,9 +705,9 @@
             var tabs = modal.querySelectorAll('.mtab');
             var contents = modal.querySelectorAll('.modal-tab-content');
             tabs.forEach(function(t) { t.classList.remove('active'); });
-            contents.forEach(function(c) { c.classList.remove('active'); });
+            contents.forEach(function(c) { c.style.display = 'none'; });
             if (tabs.length > 0) tabs[0].classList.add('active');
-            if (contents.length > 0) contents[0].classList.add('active');
+            if (contents.length > 0) contents[0].style.display = 'block';
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
@@ -793,14 +792,24 @@
 
         /* Modal tab geçişi */
         function switchTab(btn, tabId) {
-            // Görünürlük CSS'teki .active sınıfıyla kontrol edilir (inline style değil)
-            var modal = btn.closest('.modal');
-            modal.querySelectorAll('.mtab').forEach(function(t) { t.classList.remove('active'); });
-            modal.querySelectorAll('.modal-tab-content').forEach(function(c) { c.classList.remove('active'); });
+            // Tüm açık modalda mtab ve tab-content'leri bul
+            var allTabs = document.querySelectorAll('.modal.open .mtab');
+            var allContents = document.querySelectorAll('.modal.open .modal-tab-content');
+            
+            allTabs.forEach(function(t) { t.classList.remove('active'); });
+            allContents.forEach(function(c) { c.style.display = 'none'; });
+            
             btn.classList.add('active');
             var target = document.getElementById(tabId);
-            if (target) target.classList.add('active');
+            if (target) target.style.display = 'block';
         }
+        
+        /* Sayfa yüklenince tüm modal tab içeriklerini gizle */
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.modal-tab-content').forEach(function(el) {
+                el.style.display = 'none';
+            });
+        });
 
         /* Form gönderimi */
         document.getElementById('contactForm').addEventListener('submit', function(e) {
