@@ -513,8 +513,8 @@ nav { display: flex; justify-content: space-between; align-items: center; height
 
 .mtab:hover:not(.active) { background: var(--border); color: var(--navy); }
 
-.modal-tab-content { display: none !important; }
-.modal-tab-content.active { display: block !important; }
+.modal-tab-content { display: none; }
+.modal-tab-content.active { display: block; }
 
 .modal-model-name {
     font-size: 0.75rem;
