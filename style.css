@@ -25,6 +25,7 @@ nav { display: flex; justify-content: space-between; align-items: center; height
 
 .logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--white); letter-spacing: 0.04em; text-decoration: none; display: flex; align-items: center; }
 .logo span { color: var(--blue-bright); font-weight: 400; margin-left: 2px; }
+.logo-mark { width: 34px; height: 34px; padding: 3px; margin-right: 10px; background: var(--white); border-radius: 6px; flex-shrink: 0; }
 
 .nav-links { list-style: none; display: flex; gap: 36px; }
 .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
