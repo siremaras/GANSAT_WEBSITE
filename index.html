@@ -32,7 +32,7 @@
         "@type": "Organization",
         "name": "Gansat Teknoloji",
         "url": "https://gansat.com.tr",
-        "logo": "https://gansat.com.tr/logo.svg",
+        "logo": "https://gansat.com.tr/logo.png",
         "description": "Türkiye'nin ilk yerli SSPA ve BUC üreticisi. GaN teknolojisi tabanlı Ku-Band BUC/SSPA modelleri.",
         "address": {
             "@type": "PostalAddress",
@@ -54,21 +54,15 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='20' r='19' fill='none' stroke='%2300a8ff' stroke-width='2'/><line x1='9' y1='27' x2='31' y2='27' stroke='%2300a8ff' stroke-width='2.5' stroke-linecap='round'/><circle cx='20' cy='27' r='3' fill='%2300a8ff'/><path d='M 14,21 A 8,8 0 0,1 26,21' fill='none' stroke='%2300a8ff' stroke-width='2.5' stroke-linecap='round'/><path d='M 9,14 A 15,15 0 0,1 31,14' fill='none' stroke='%2300a8ff' stroke-width='2' stroke-linecap='round' opacity='0.7'/><path d='M 5,7 A 21,21 0 0,1 35,7' fill='none' stroke='%2300a8ff' stroke-width='1.5' stroke-linecap='round' opacity='0.4'/></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
 
     <header>
         <nav class="container">
             <div class="logo">
-                <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:8px; vertical-align:middle; flex-shrink:0;">
-                    <circle cx="20" cy="20" r="19" stroke="#00a8ff" stroke-width="2"/>
-                    <line x1="9" y1="27" x2="31" y2="27" stroke="#00a8ff" stroke-width="2.5" stroke-linecap="round"/>
-                    <circle cx="20" cy="27" r="3" fill="#00a8ff"/>
-                    <path d="M 14,21 A 8,8 0 0,1 26,21" fill="none" stroke="#00a8ff" stroke-width="2.5" stroke-linecap="round"/>
-                    <path d="M 9,14 A 15,15 0 0,1 31,14" fill="none" stroke="#00a8ff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-                    <path d="M 5,7 A 21,21 0 0,1 35,7" fill="none" stroke="#00a8ff" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-                </svg>GANSAT<span>TEKNOLOJİ</span>
+                <img src="logo.png" alt="GANSAT logo" class="logo-mark" width="34" height="34">GANSAT<span>TEKNOLOJİ</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
@@ -705,9 +699,9 @@
             var tabs = modal.querySelectorAll('.mtab');
             var contents = modal.querySelectorAll('.modal-tab-content');
             tabs.forEach(function(t) { t.classList.remove('active'); });
-            contents.forEach(function(c) { c.style.display = 'none'; });
+            contents.forEach(function(c) { c.classList.remove('active'); });
             if (tabs.length > 0) tabs[0].classList.add('active');
-            if (contents.length > 0) contents[0].style.display = 'block';
+            if (contents.length > 0) contents[0].classList.add('active');
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
@@ -792,24 +786,14 @@
 
         /* Modal tab geçişi */
         function switchTab(btn, tabId) {
-            // Tüm açık modalda mtab ve tab-content'leri bul
-            var allTabs = document.querySelectorAll('.modal.open .mtab');
-            var allContents = document.querySelectorAll('.modal.open .modal-tab-content');
-            
-            allTabs.forEach(function(t) { t.classList.remove('active'); });
-            allContents.forEach(function(c) { c.style.display = 'none'; });
-            
+            // Görünürlük CSS'teki .active sınıfıyla kontrol edilir (inline style değil)
+            var modal = btn.closest('.modal');
+            modal.querySelectorAll('.mtab').forEach(function(t) { t.classList.remove('active'); });
+            modal.querySelectorAll('.modal-tab-content').forEach(function(c) { c.classList.remove('active'); });
             btn.classList.add('active');
             var target = document.getElementById(tabId);
-            if (target) target.style.display = 'block';
+            if (target) target.classList.add('active');
         }
-        
-        /* Sayfa yüklenince tüm modal tab içeriklerini gizle */
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.modal-tab-content').forEach(function(el) {
-                el.style.display = 'none';
-            });
-        });
 
         /* Form gönderimi */
         document.getElementById('contactForm').addEventListener('submit', function(e) {
