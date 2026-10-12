@@ -262,6 +262,7 @@
         function switchImg(el) { document.getElementById('mainImg').src = el.src; document.querySelectorAll('.thumb-row img').forEach(i => i.classList.remove('active')); el.classList.add('active'); }
         function switchVersion(btn, id) { document.querySelectorAll('.vtab').forEach(t => t.classList.remove('active')); document.querySelectorAll('.version-content').forEach(c => c.style.display = 'none'); btn.classList.add('active'); document.getElementById(id).style.display = 'block'; }
         document.addEventListener('DOMContentLoaded', function() { document.querySelectorAll('.version-content').forEach(function(el) { el.style.display = 'none'; }); var a = document.querySelector('.version-content.active'); if (a) a.style.display = 'block'; });
+        function toggleFaq(btn) { var expanded = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", String(!expanded)); var answer = btn.closest(".faq-item").querySelector(".faq-answer"); answer.classList.toggle("open", !expanded); }
         function setLang(lang) { document.documentElement.lang = lang; document.querySelectorAll('[data-tr]').forEach(el => { const t = el.getAttribute('data-' + lang); if (t) el.innerHTML = t; }); document.getElementById('btn-tr').classList.toggle('active', lang === 'tr'); document.getElementById('btn-en').classList.toggle('active', lang === 'en'); }
     </script>
 </body>
