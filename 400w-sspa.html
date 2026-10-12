@@ -303,6 +303,7 @@
             if (active) active.style.display = 'block';
         });
 
+        function toggleFaq(btn) { var expanded = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", String(!expanded)); var answer = btn.closest(".faq-item").querySelector(".faq-answer"); answer.classList.toggle("open", !expanded); }
         function setLang(lang) {
             document.documentElement.lang = lang;
             document.querySelectorAll('[data-tr]').forEach(el => {
