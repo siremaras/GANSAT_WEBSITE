@@ -178,14 +178,18 @@
     background: var(--white);
 }
 
+.specs-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+
 .specs-title {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 2rem;
     font-weight: 800;
     color: var(--navy);
-    margin-bottom: 32px;
     letter-spacing: -0.01em;
 }
+
+.specs-download { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--white); color: var(--navy); border: 1px solid rgba(0,31,63,0.2); border-radius: 8px; font-family: 'Barlow', sans-serif; font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.specs-download:hover { background: var(--navy); border-color: var(--navy); color: var(--white); }
 
 .specs-table-wrap {
     border: 1px solid var(--border);
@@ -475,4 +479,60 @@
 .product-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 @media (max-width: 600px) {
     .product-actions { flex-direction: column; align-items: stretch; }
+}
+
+/* ===================== TEKNİK VERİ SAYFASI (YAZDIR / PDF) ===================== */
+.print-header { display: none; }
+
+@media print {
+    @page { size: A4; margin: 14mm 14mm 16mm; }
+    html, body { background: #fff !important; }
+    body { color: #111; font-size: 10.5pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    *, *::before, *::after { animation: none !important; transition: none !important; box-shadow: none !important; text-shadow: none !important; }
+    .container { max-width: none; padding: 0; }
+
+    /* Ekrana özel öğeler gizlenir */
+    header, .breadcrumb, .thumb-row, .product-actions, .version-tabs, .specs-download,
+    .product-faq, .product-description-section, .product-nav-section, footer, .scroll-top, .loader, .modal { display: none !important; }
+
+    /* Marka başlığı */
+    .print-header { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2px solid #001f3f; }
+    .print-header img { width: 40px; height: 40px; }
+    .print-brand { display: flex; flex-direction: column; line-height: 1.2; }
+    .print-brand strong { font-family: 'Barlow Condensed', sans-serif; font-size: 16pt; letter-spacing: 0.04em; color: #0d2f5c; }
+    .print-brand strong span { color: #0077b6; font-weight: 600; }
+    .print-brand em { font-style: normal; font-size: 9pt; letter-spacing: 0.12em; text-transform: uppercase; color: #555; }
+    .print-contact { margin-left: auto; text-align: right; font-size: 8.5pt; color: #333; line-height: 1.5; }
+
+    /* Ürün özeti: koyu zemin yerine beyaz kâğıt */
+    .product-hero { background: #fff !important; padding: 0 0 8px; }
+    .product-hero::before { display: none; }
+    .product-hero-grid { grid-template-columns: 0.8fr 1.2fr; gap: 24px; align-items: center; }
+    .main-img-wrap { background: #f4f6f9 !important; border: 1px solid #dde3ea; aspect-ratio: 4/3; }
+    .product-intro h1 { color: #001f3f; font-size: 26pt; margin-bottom: 6px; }
+    .product-lead, .feature-list li { color: #222 !important; }
+    .product-lead { font-size: 10pt; margin-bottom: 12px; }
+    .modal-band-tag { border: 1px solid #b9d7f0; }
+    .key-stats { background: #dde3ea !important; border-color: #dde3ea; margin-bottom: 12px; }
+    .ks-item { background: #f4f6f9 !important; padding: 8px 6px; }
+    .ks-val { color: #001f3f; font-size: 13pt; }
+    .ks-label { color: #444 !important; font-size: 7pt; }
+    .features-title { color: #001f3f !important; font-size: 10pt; margin-bottom: 6px; }
+    .feature-list { gap: 3px; margin-bottom: 0; }
+    .feature-list li { font-size: 9.5pt; }
+    .feature-list li::before { background: #0077b6; }
+
+    /* Teknik tablolar: iki versiyon da basılır */
+    .specs-section { padding: 10px 0 0; }
+    .specs-head { margin-bottom: 8px; }
+    .specs-title { font-size: 15pt; }
+    .version-content { display: block !important; margin-bottom: 12px; }
+    .version-content + .version-content { margin-top: 14px; }
+    .version-model { margin-bottom: 6px; break-after: avoid; }
+    .specs-table-wrap { border-color: #c9d1db; border-radius: 0; }
+    .specs-table { font-size: 9pt; }
+    .specs-table td { padding: 5px 10px; }
+    .specs-table tr { break-inside: avoid; }
+    .specs-table td:first-child { background: #f4f6f9 !important; color: #333; }
+
 }
