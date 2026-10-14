@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>100W Ku-Band GaN BUC / SSPA | GANSAT-100WKU | Gansat Teknoloji</title>
     <meta name="description" content="GANSAT-100WKU — 100W Ku-Band GaN SSPA / Block Up Converter. 13.75–14.75 GHz, +50 dBm, Intelsat IESS308/309 uyumlu. VSAT ve sabit uydu uplink için yerli solid-state BUC.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="product.css">
@@ -57,7 +59,7 @@
     <meta property="og:description" content="GANSAT-100WKU — 100W Ku-Band GaN SSPA / Block Up Converter. 13.75–14.75 GHz, +50 dBm, Intelsat IESS308/309 uyumlu. VSAT ve sabit uydu uplink için yerli solid-state BUC.">
     <meta property="og:type" content="product">
     <meta property="og:url" content="https://www.gansat.com.tr/100w-sspa.html">
-    <meta property="og:image" content="https://www.gansat.com.tr/100w-1.png">
+    <meta property="og:image" content="https://www.gansat.com.tr/100w-og.jpg">
     <meta property="og:locale" content="tr_TR">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Gansat Teknoloji">
@@ -66,9 +68,9 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="logo.png" alt="GANSAT logo" class="logo-mark" width="34" height="34">GANSAT<span>TEKNOLOJİ</span>
+                <img src="logo.webp" alt="GANSAT Teknoloji logosu" class="logo-mark" width="34" height="34">GANSAT<span>TEKNOLOJİ</span>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
                 <li><a href="index.html#cozumler" data-tr="Ürünler" data-en="Products">Ürünler</a></li>
                 <li><a href="index.html#kurumsal" data-tr="Kurumsal" data-en="About">Kurumsal</a></li>
@@ -79,6 +81,7 @@
                 <span class="lang-divider">|</span>
                 <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
             </div>
+            <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
         </nav>
     </header>
 
@@ -88,12 +91,12 @@
             <div class="product-hero-grid">
                 <div class="product-gallery">
                     <div class="main-img-wrap">
-                        <img src="100w-1.png" alt="100W SSPA" id="mainImg" onerror="this.style.display='none'">
+                        <img src="100w-1.webp" alt="GANSAT-100WKU 100W Ku-Band GaN SSPA" id="mainImg" width="550" height="551" fetchpriority="high" onerror="this.style.display='none'">
                     </div>
                     <div class="thumb-row">
-                        <img src="100w-1.png" alt="Görsel 1" onclick="switchImg(this)" class="active" onerror="this.style.display='none'">
-                        <img src="100w-2.png" alt="Görsel 2" onclick="switchImg(this)" onerror="this.style.display='none'">
-                        <img src="100w-3.png" alt="Görsel 3" onclick="switchImg(this)" onerror="this.style.display='none'">
+                        <img src="100w-1.webp" alt="GANSAT-100WKU 100W Ku-Band GaN SSPA – görsel 1" width="550" height="551" loading="lazy" decoding="async" onclick="switchImg(this)" class="active" onerror="this.style.display='none'">
+                        <img src="100w-2.webp" alt="GANSAT-100WKU 100W Ku-Band GaN SSPA – görsel 2" width="510" height="551" loading="lazy" decoding="async" onclick="switchImg(this)" onerror="this.style.display='none'">
+                        <img src="100w-3.webp" alt="GANSAT-100WKU 100W Ku-Band GaN SSPA – görsel 3" width="489" height="549" loading="lazy" decoding="async" onclick="switchImg(this)" onerror="this.style.display='none'">
                     </div>
                 </div>
                 <div class="product-intro">
@@ -264,6 +267,17 @@
         function switchVersion(btn, id) { document.querySelectorAll('.vtab').forEach(t => t.classList.remove('active')); document.querySelectorAll('.version-content').forEach(c => c.style.display = 'none'); btn.classList.add('active'); document.getElementById(id).style.display = 'block'; }
         document.addEventListener('DOMContentLoaded', function() { document.querySelectorAll('.version-content').forEach(function(el) { el.style.display = 'none'; }); var a = document.querySelector('.version-content.active'); if (a) a.style.display = 'block'; });
         function toggleFaq(btn) { var expanded = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", String(!expanded)); var answer = btn.closest(".faq-item").querySelector(".faq-answer"); answer.classList.toggle("open", !expanded); }
+        /* Mobil menü */
+        function toggleNav(btn) {
+            var open = btn.closest('nav').classList.toggle('nav-open');
+            btn.setAttribute('aria-expanded', String(open));
+        }
+        document.querySelectorAll('.nav-links a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                var nav = a.closest('nav'); nav.classList.remove('nav-open');
+                nav.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+            });
+        });
         function setLang(lang) { document.documentElement.lang = lang; document.querySelectorAll('[data-tr]').forEach(el => { const t = el.getAttribute('data-' + lang); if (t) el.innerHTML = t; }); document.getElementById('btn-tr').classList.toggle('active', lang === 'tr'); document.getElementById('btn-en').classList.toggle('active', lang === 'en'); }
     </script>
 </body>

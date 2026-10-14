@@ -31,8 +31,8 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Gansat Teknoloji",
-        "url": "https://gansat.com.tr",
-        "logo": "https://gansat.com.tr/logo.png",
+        "url": "https://www.gansat.com.tr",
+        "logo": "https://www.gansat.com.tr/logo.png",
         "description": "Türkiye'nin ilk yerli SSPA ve BUC üreticisi. GaN teknolojisi tabanlı Ku-Band BUC/SSPA modelleri.",
         "address": {
             "@type": "PostalAddress",
@@ -52,6 +52,8 @@
     }
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -62,9 +64,9 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <img src="logo.png" alt="GANSAT logo" class="logo-mark" width="34" height="34">GANSAT<span>TEKNOLOJİ</span>
+                <img src="logo.webp" alt="GANSAT Teknoloji logosu" class="logo-mark" width="34" height="34">GANSAT<span>TEKNOLOJİ</span>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
                 <li><a href="#cozumler" data-tr="Ürünler" data-en="Products">Ürünler</a></li>
                 <li><a href="#kurumsal" data-tr="Kurumsal" data-en="About">Kurumsal</a></li>
@@ -75,6 +77,7 @@
                 <span class="lang-divider">|</span>
                 <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
             </div>
+            <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
         </nav>
     </header>
 
@@ -126,7 +129,7 @@
 
                     <div class="product-card" onclick="openModal('modal20w')">
                         <div class="card-img-wrap">
-                            <img src="20w-thumb.png" alt="20W SSPA">
+                            <img src="20w-thumb.webp" alt="GANSAT-20WKU 20W Ku-Band GaN SSPA / BUC" width="329" height="300" loading="lazy" decoding="async">
                         </div>
                         <div class="card-inner">
                             <div class="card-watt">20<span>W</span></div>
@@ -146,7 +149,7 @@
 
                     <div class="product-card" onclick="openModal('modal50w')">
                         <div class="card-img-wrap">
-                            <img src="50w-thumb.png" alt="50W SSPA">
+                            <img src="50w-thumb.webp" alt="GANSAT-50WKU 50W Ku-Band GaN SSPA / BUC" width="331" height="268" loading="lazy" decoding="async">
                         </div>
                         <div class="card-inner">
 
@@ -167,7 +170,7 @@
 
                     <div class="product-card" onclick="openModal('modal100w')">
                         <div class="card-img-wrap">
-                            <img src="100w-thumb.png" alt="100W SSPA">
+                            <img src="100w-thumb.webp" alt="GANSAT-100WKU 100W Ku-Band GaN SSPA / BUC" width="299" height="300" loading="lazy" decoding="async">
                         </div>
                         <div class="card-inner">
 
@@ -188,7 +191,7 @@
 
                     <div class="product-card" onclick="openModal('modal200w')">
                         <div class="card-img-wrap">
-                            <img src="200w-thumb.png" alt="200W SSPA">
+                            <img src="200w-thumb.webp" alt="GANSAT-200WKU 200W Ku-Band GaN SSPA / BUC" width="331" height="244" loading="lazy" decoding="async">
                         </div>
                         <div class="card-inner">
 
@@ -209,7 +212,7 @@
 
                     <div class="product-card" onclick="openModal('modal400w')">
                         <div class="card-img-wrap">
-                            <img src="400w-thumb.png" alt="400W SSPA">
+                            <img src="400w-thumb.webp" alt="GANSAT-400WKU 400W Ku-Band GaN SSPA / BUC" width="353" height="300" loading="lazy" decoding="async">
                         </div>
                         <div class="card-inner">
 
@@ -360,10 +363,10 @@
         <div class="container">
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="resim1.png" alt="Gansat Teknoloji">
+                    <img src="resim1.webp" alt="Gansat Teknoloji üretim tesisi – sokak görünümü" width="1200" height="476" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-item">
-                    <img src="resim2.png" alt="Gansat Teknoloji">
+                    <img src="resim2.webp" alt="Gansat Teknoloji tesisi ve uydu antenleri" width="1029" height="335" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -708,6 +711,17 @@
         function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
         window.addEventListener('click', function(e) { if (e.target.classList.contains('modal')) { e.target.classList.remove('open'); document.body.style.overflow = ''; } });
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.querySelectorAll('.modal.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; }); } });
+        /* Mobil menü */
+        function toggleNav(btn) {
+            var open = btn.closest('nav').classList.toggle('nav-open');
+            btn.setAttribute('aria-expanded', String(open));
+        }
+        document.querySelectorAll('.nav-links a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                var nav = a.closest('nav'); nav.classList.remove('nav-open');
+                nav.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+            });
+        });
         function setLang(lang) {
             document.documentElement.lang = lang;
             document.querySelectorAll('[data-tr]').forEach(el => { const t = el.getAttribute('data-' + lang); if (t) el.innerHTML = t; });
@@ -836,9 +850,7 @@
 
         /* Loading animasyonu */
         window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loader').classList.add('loader-hidden');
-            }, 1200);
+            document.getElementById('loader').classList.add('loader-hidden');
         });
 
         /* Scroll-to-top butonu */
