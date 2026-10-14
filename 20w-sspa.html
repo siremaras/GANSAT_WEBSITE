@@ -82,12 +82,15 @@
                 <li><a href="index.html#kurumsal" data-tr="Kurumsal" data-en="About">Kurumsal</a></li>
                 <li><a href="index.html#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
-            <div class="lang-toggle">
-                <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
-                <span class="lang-divider">|</span>
-                <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+            <div class="nav-right">
+                <a href="index.html#iletisim" class="nav-cta" data-tr="Teklif Al" data-en="Get a Quote">Teklif Al</a>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+                    <span class="lang-divider" aria-hidden="true">|</span>
+                    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+                </div>
+                <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
             </div>
-            <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
         </nav>
     </header>
 
@@ -125,13 +128,16 @@
                         <li data-tr="Dahili 10 MHz yüksek kararlılıklı referans (opsiyonel)" data-en="Internal 10MHz high stability reference (optional)">Dahili 10 MHz yüksek kararlılıklı referans (opsiyonel)</li>
                         <li data-tr="RoHS uyumlu · Sadece sivil kullanım" data-en="RoHS compliant · For civil use only">RoHS uyumlu · Sadece sivil kullanım</li>
                     </ul>
-                    <a href="index.html#iletisim" class="btn-primary" data-tr="Teklif Al" data-en="Request a Quote">Teklif Al</a>
+                    <div class="product-actions">
+                        <a href="index.html#iletisim" class="btn-primary" data-tr="Teklif Al" data-en="Request a Quote">Teklif Al</a>
+                        <a href="#teknik" class="btn-secondary" data-tr="Teknik Özellikler" data-en="Technical Specifications">Teknik Özellikler</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="specs-section">
+    <section class="specs-section" id="teknik">
         <div class="container">
             <h2 class="specs-title" data-tr="Teknik Özellikler" data-en="Technical Specifications">Teknik Özellikler</h2>
             <div class="version-tabs">

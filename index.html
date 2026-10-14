@@ -72,12 +72,15 @@
                 <li><a href="#kurumsal" data-tr="Kurumsal" data-en="About">Kurumsal</a></li>
                 <li><a href="#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
-            <div class="lang-toggle">
-                <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
-                <span class="lang-divider">|</span>
-                <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+            <div class="nav-right">
+                <a href="#iletisim" class="nav-cta" data-tr="Teklif Al" data-en="Get a Quote">Teklif Al</a>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+                    <span class="lang-divider" aria-hidden="true">|</span>
+                    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+                </div>
+                <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
             </div>
-            <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
         </nav>
     </header>
 
@@ -103,7 +106,16 @@
             <div class="hero-tag" data-tr="Yerli & Milli SSPA Üretimi · Türkiye" data-en="Domestic SSPA Manufacturing · Turkey">Yerli &amp; Milli SSPA Üretimi · Türkiye</div>
             <h1 data-tr="Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü" data-en="Domestic Technology Power<br>in Satellite Communications">Uydu Haberleşmesinde<br>Yerli Teknoloji Gücü</h1>
             <p data-tr="Türkiye'de yerli SSPA üretimini gerçekleştiren Gansat Teknoloji, GaN teknolojisi tabanlı Ku-Band BUC/SSPA modellerimizle uydu haberleşme sektörüne yüksek performanslı ve güvenilir çözümler sunuyoruz." data-en="Gansat Technology — Turkey's domestic SSPA manufacturer. We deliver high-performance, reliable Ku-Band BUC/SSPA solutions to the satellite communications sector, powered by GaN technology.">Türkiye'de yerli SSPA üretimini gerçekleştiren Gansat Teknoloji, GaN teknolojisi tabanlı Ku-Band BUC/SSPA modellerimizle uydu haberleşme sektörüne yüksek performanslı ve güvenilir çözümler sunuyoruz.</p>
-            <a href="#cozumler" class="btn-primary" data-tr="Ürünleri İnceleyin" data-en="Explore Products">Ürünleri İnceleyin</a>
+            <div class="hero-actions">
+                <a href="#cozumler" class="btn-primary" data-tr="Ürünleri İnceleyin" data-en="Explore Products">Ürünleri İnceleyin</a>
+                <a href="#iletisim" class="btn-secondary" data-tr="Teklif Alın" data-en="Request a Quote">Teklif Alın</a>
+            </div>
+            <ul class="hero-points">
+                <li data-tr="GaN Teknolojisi" data-en="GaN Technology">GaN Teknolojisi</li>
+                <li data-tr="20W – 400W Çıkış Gücü" data-en="20W – 400W Output Power">20W – 400W Çıkış Gücü</li>
+                <li>Ku-Band 13.75 – 14.50 GHz</li>
+                <li data-tr="Intelsat IESS-308/309 Uyumlu" data-en="Intelsat IESS-308/309 Compliant">Intelsat IESS-308/309 Uyumlu</li>
+            </ul>
         </div>
 
     </section>
@@ -127,7 +139,7 @@
 
                 <div class="products-grid">
 
-                    <div class="product-card" onclick="openModal('modal20w')">
+                    <div class="product-card" role="button" tabindex="0" aria-label="20W SSPA – detaylar" onclick="openModal('modal20w')">
                         <div class="card-img-wrap">
                             <img src="20w-thumb.webp" alt="GANSAT-20WKU 20W Ku-Band GaN SSPA / BUC" width="329" height="300" loading="lazy" decoding="async">
                         </div>
@@ -147,7 +159,7 @@
                         <div class="card-glow ku"></div>
                     </div>
 
-                    <div class="product-card" onclick="openModal('modal50w')">
+                    <div class="product-card" role="button" tabindex="0" aria-label="50W SSPA – detaylar" onclick="openModal('modal50w')">
                         <div class="card-img-wrap">
                             <img src="50w-thumb.webp" alt="GANSAT-50WKU 50W Ku-Band GaN SSPA / BUC" width="331" height="268" loading="lazy" decoding="async">
                         </div>
@@ -168,7 +180,7 @@
                         <div class="card-glow ku"></div>
                     </div>
 
-                    <div class="product-card" onclick="openModal('modal100w')">
+                    <div class="product-card" role="button" tabindex="0" aria-label="100W SSPA – detaylar" onclick="openModal('modal100w')">
                         <div class="card-img-wrap">
                             <img src="100w-thumb.webp" alt="GANSAT-100WKU 100W Ku-Band GaN SSPA / BUC" width="299" height="300" loading="lazy" decoding="async">
                         </div>
@@ -189,7 +201,7 @@
                         <div class="card-glow ku"></div>
                     </div>
 
-                    <div class="product-card" onclick="openModal('modal200w')">
+                    <div class="product-card" role="button" tabindex="0" aria-label="200W SSPA – detaylar" onclick="openModal('modal200w')">
                         <div class="card-img-wrap">
                             <img src="200w-thumb.webp" alt="GANSAT-200WKU 200W Ku-Band GaN SSPA / BUC" width="331" height="244" loading="lazy" decoding="async">
                         </div>
@@ -210,7 +222,7 @@
                         <div class="card-glow ku"></div>
                     </div>
 
-                    <div class="product-card" onclick="openModal('modal400w')">
+                    <div class="product-card" role="button" tabindex="0" aria-label="400W SSPA – detaylar" onclick="openModal('modal400w')">
                         <div class="card-img-wrap">
                             <img src="400w-thumb.webp" alt="GANSAT-400WKU 400W Ku-Band GaN SSPA / BUC" width="353" height="300" loading="lazy" decoding="async">
                         </div>
@@ -376,7 +388,7 @@
     <!-- 20W Modal -->
     <div id="modal20w" class="modal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal20w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <button class="modal-close" aria-label="Kapat" onclick="closeModal('modal20w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
             <div class="modal-band-tag ku">Ku-Band · GaN</div>
             <h3>20W SSPA</h3>
             <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, yüksek verimli solid-state tasarım. Taşınabilir ve mobil uygulamalar için idealdir." data-en="L-to-Ku Band Block Up Converter based on GaN technology. High-efficiency solid-state design. Ideal for portable and mobile applications.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, yüksek verimli solid-state tasarım. Taşınabilir ve mobil uygulamalar için idealdir.</p>
@@ -415,7 +427,7 @@
     <!-- 50W Modal -->
     <div id="modal50w" class="modal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal50w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <button class="modal-close" aria-label="Kapat" onclick="closeModal('modal50w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
             <div class="modal-band-tag ku">Ku-Band · GaN</div>
             <h3>50W SSPA</h3>
             <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, uydu uplink uygulamalarında yüksek verim ve güvenilirlik sağlar." data-en="L-to-Ku Band Block Up Converter based on GaN technology. Delivers high efficiency and reliability for satellite uplink applications.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, uydu uplink uygulamalarında yüksek verim ve güvenilirlik sağlar.</p>
@@ -454,7 +466,7 @@
     <!-- 100W Modal -->
     <div id="modal100w" class="modal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal100w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <button class="modal-close" aria-label="Kapat" onclick="closeModal('modal100w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
             <div class="modal-band-tag ku">Ku-Band · GaN</div>
             <h3>100W SSPA</h3>
             <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, kurumsal uydu uplink uygulamaları için yüksek performanslı çözüm." data-en="L-to-Ku Band Block Up Converter based on GaN technology. High-performance solution for enterprise satellite uplink applications.">L-to-Ku Band Block Up Converter. GaN teknolojisi tabanlı, kurumsal uydu uplink uygulamaları için yüksek performanslı çözüm.</p>
@@ -493,7 +505,7 @@
     <!-- 200W Modal -->
     <div id="modal200w" class="modal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal200w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <button class="modal-close" aria-label="Kapat" onclick="closeModal('modal200w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
             <div class="modal-band-tag ku">Ku-Band · GaN</div>
             <h3>200W SSPA</h3>
             <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. Yüksek verimli GaN solid-state tasarım, zorlu ortamlarda güvenilir yüksek güç sağlar." data-en="L-to-Ku Band Block Up Converter. High-efficiency GaN solid-state design delivers reliable high power in the toughest environments.">L-to-Ku Band Block Up Converter. Yüksek verimli GaN solid-state tasarım, zorlu ortamlarda güvenilir yüksek güç sağlar.</p>
@@ -532,7 +544,7 @@
     <!-- 400W Modal -->
     <div id="modal400w" class="modal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal400w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <button class="modal-close" aria-label="Kapat" onclick="closeModal('modal400w')"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
             <div class="modal-band-tag ku">Ku-Band · GaN</div>
             <h3>400W SSPA</h3>
             <p class="modal-desc" data-tr="L-to-Ku Band Block Up Converter. Zorlu dış ortam koşullarında güvenilir çalışma için tasarlanmış maksimum güç çözümü." data-en="L-to-Ku Band Block Up Converter. Maximum power solution designed for reliable operation in the toughest outdoor environments.">L-to-Ku Band Block Up Converter. Zorlu dış ortam koşullarında güvenilir çalışma için tasarlanmış maksimum güç çözümü.</p>
@@ -711,6 +723,12 @@
         function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
         window.addEventListener('click', function(e) { if (e.target.classList.contains('modal')) { e.target.classList.remove('open'); document.body.style.overflow = ''; } });
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.querySelectorAll('.modal.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; }); } });
+        /* Ürün kartları klavye ile açılabilir */
+        document.querySelectorAll('.product-card[role="button"]').forEach(function(card) {
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+            });
+        });
         /* Mobil menü */
         function toggleNav(btn) {
             var open = btn.closest('nav').classList.toggle('nav-open');
