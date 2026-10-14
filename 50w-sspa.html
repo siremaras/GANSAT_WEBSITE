@@ -53,6 +53,8 @@
       ]
     }
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="product.css">
@@ -74,7 +76,7 @@
             <a href="index.html" class="logo">
                 <img src="logo.webp" alt="GANSAT Teknoloji logosu" class="logo-mark" width="34" height="34">GANSAT<span>TEKNOLOJİ</span>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
                 <li><a href="index.html#cozumler" data-tr="Ürünler" data-en="Products">Ürünler</a></li>
                 <li><a href="index.html#kurumsal" data-tr="Kurumsal" data-en="About">Kurumsal</a></li>
@@ -85,6 +87,7 @@
                 <span class="lang-divider">|</span>
                 <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
             </div>
+            <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
         </nav>
     </header>
 
@@ -270,6 +273,17 @@
         function switchVersion(btn, id) { document.querySelectorAll('.vtab').forEach(t => t.classList.remove('active')); document.querySelectorAll('.version-content').forEach(c => c.style.display = 'none'); btn.classList.add('active'); document.getElementById(id).style.display = 'block'; }
         document.addEventListener('DOMContentLoaded', function() { document.querySelectorAll('.version-content').forEach(function(el) { el.style.display = 'none'; }); var a = document.querySelector('.version-content.active'); if (a) a.style.display = 'block'; });
         function toggleFaq(btn) { var expanded = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", String(!expanded)); var answer = btn.closest(".faq-item").querySelector(".faq-answer"); answer.classList.toggle("open", !expanded); }
+        /* Mobil menü */
+        function toggleNav(btn) {
+            var open = btn.closest('nav').classList.toggle('nav-open');
+            btn.setAttribute('aria-expanded', String(open));
+        }
+        document.querySelectorAll('.nav-links a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                var nav = a.closest('nav'); nav.classList.remove('nav-open');
+                nav.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+            });
+        });
         function setLang(lang) { document.documentElement.lang = lang; document.querySelectorAll('[data-tr]').forEach(el => { const t = el.getAttribute('data-' + lang); if (t) el.innerHTML = t; }); document.getElementById('btn-tr').classList.toggle('active', lang === 'tr'); document.getElementById('btn-en').classList.toggle('active', lang === 'en'); }
     </script>
 </body>
