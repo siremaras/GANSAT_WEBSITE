@@ -1,4 +1,8 @@
+# Gansat Teknoloji — https://www.gansat.com.tr
 User-agent: *
 Allow: /
+
+# Form endpoint: not a page, nothing to index
+Disallow: /contact.php
 
 Sitemap: https://www.gansat.com.tr/sitemap.xml
