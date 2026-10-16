@@ -15,6 +15,18 @@ $FROM_NAME = 'Gansat Web Sitesi';
 $COOLDOWN  = 30;                          // Aynı ziyaretçi için iki gönderim arası (saniye)
 // -------------------------------------------------------------------------
 
+// mbstring eklentisi kapalı olan sunucular için UTF-8 uyumlu yedek fonksiyonlar
+if (!function_exists('mb_strlen')) {
+    function mb_strlen($s, $enc = null) { return (int) preg_match_all('/./us', (string) $s); }
+}
+if (!function_exists('mb_substr')) {
+    function mb_substr($s, $start, $length = null, $enc = null)
+    {
+        preg_match_all('/./us', (string) $s, $m);
+        return implode('', array_slice($m[0], $start, $length));
+    }
+}
+
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 header('Cache-Control: no-store');

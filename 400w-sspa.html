@@ -221,7 +221,7 @@
                     </ul>
                     <div class="product-actions">
                         <a href="index.html#iletisim" class="btn-primary" data-tr="Teklif Al" data-en="Request a Quote">Teklif Al</a>
-                        <button type="button" class="btn-secondary" onclick="window.print()" data-tr="Veri Sayfasını İndir (PDF)" data-en="Download Datasheet (PDF)">Veri Sayfasını İndir (PDF)</button>
+                        <a class="btn-secondary datasheet-link" href="datasheets/gansat-400wku-datasheet-tr.pdf" data-pdf-tr="datasheets/gansat-400wku-datasheet-tr.pdf" data-pdf-en="datasheets/gansat-400wku-datasheet-en.pdf" download data-tr="Veri Sayfasını İndir (PDF)" data-en="Download Datasheet (PDF)">Veri Sayfasını İndir (PDF)</a>
                     </div>
                 </div>
             </div>
@@ -233,7 +233,7 @@
         <div class="container">
             <div class="specs-head">
                 <h2 class="specs-title" data-tr="Teknik Özellikler" data-en="Technical Specifications">Teknik Özellikler</h2>
-                <button type="button" class="specs-download" onclick="window.print()"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5 8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-tr="Veri Sayfası (PDF)" data-en="Datasheet (PDF)">Veri Sayfası (PDF)</span></button>
+                <a class="specs-download datasheet-link" href="datasheets/gansat-400wku-datasheet-tr.pdf" data-pdf-tr="datasheets/gansat-400wku-datasheet-tr.pdf" data-pdf-en="datasheets/gansat-400wku-datasheet-en.pdf" download><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5 8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-tr="Veri Sayfası (PDF)" data-en="Datasheet (PDF)">Veri Sayfası (PDF)</span></a>
             </div>
 
             <!-- Tab seçici -->
@@ -424,7 +424,7 @@
                 const t = el.getAttribute('data-' + lang);
                 if (t) el.innerHTML = t;
             });
-            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+            document.querySelectorAll('.datasheet-link').forEach(function(a) { a.href = a.getAttribute('data-pdf-' + lang); }); document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         }
     </script>
