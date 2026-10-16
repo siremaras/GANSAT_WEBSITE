@@ -188,7 +188,7 @@
     letter-spacing: -0.01em;
 }
 
-.specs-download { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--white); color: var(--navy); border: 1px solid rgba(0,31,63,0.2); border-radius: 8px; font-family: 'Barlow', sans-serif; font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.specs-download { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--white); color: var(--navy); border: 1px solid rgba(0,31,63,0.2); border-radius: 8px; font-family: 'Barlow', sans-serif; font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
 .specs-download:hover { background: var(--navy); border-color: var(--navy); color: var(--white); }
 
 .specs-table-wrap {
