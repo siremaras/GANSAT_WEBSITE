@@ -24,8 +24,8 @@
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(4,191,246,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(4,191,246,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(75,175,225,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(75,175,225,0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     pointer-events: none;
 }
@@ -128,7 +128,7 @@
 
 .ks-label {
     font-size: 0.7rem;
-    color: var(--on-dark-subtle);
+    color: var(--on-dark-muted);
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
@@ -188,7 +188,7 @@
     letter-spacing: -0.01em;
 }
 
-.specs-download { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--white); color: var(--navy); border: 1px solid rgba(0,31,63,0.2); border-radius: 8px; font-family: 'Barlow', sans-serif; font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.specs-download { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--white); color: var(--navy); border: 1px solid rgba(25,55,95,0.2); border-radius: 8px; font-family: 'Barlow', sans-serif; font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
 .specs-download:hover { background: var(--navy); border-color: var(--navy); color: var(--white); }
 
 .specs-table-wrap {
@@ -496,11 +496,11 @@
     .product-faq, .product-description-section, .product-nav-section, footer, .scroll-top, .loader, .modal { display: none !important; }
 
     /* Marka başlığı */
-    .print-header { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2px solid #001f3f; }
+    .print-header { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2px solid #19375F; }
     .print-header img { width: 40px; height: 40px; }
     .print-brand { display: flex; flex-direction: column; line-height: 1.2; }
-    .print-brand strong { font-family: 'Barlow Condensed', sans-serif; font-size: 16pt; letter-spacing: 0.04em; color: #0d2f5c; }
-    .print-brand strong span { color: #0077b6; font-weight: 600; }
+    .print-brand strong { font-family: 'Barlow Condensed', sans-serif; font-size: 16pt; letter-spacing: 0.04em; color: #19375F; }
+    .print-brand strong span { color: #2f8fc4; font-weight: 600; }
     .print-brand em { font-style: normal; font-size: 9pt; letter-spacing: 0.12em; text-transform: uppercase; color: #555; }
     .print-contact { margin-left: auto; text-align: right; font-size: 8.5pt; color: #333; line-height: 1.5; }
 
@@ -509,18 +509,18 @@
     .product-hero::before { display: none; }
     .product-hero-grid { grid-template-columns: 0.8fr 1.2fr; gap: 24px; align-items: center; }
     .main-img-wrap { background: #f4f6f9 !important; border: 1px solid #dde3ea; aspect-ratio: 4/3; }
-    .product-intro h1 { color: #001f3f; font-size: 26pt; margin-bottom: 6px; }
+    .product-intro h1 { color: #19375F; font-size: 26pt; margin-bottom: 6px; }
     .product-lead, .feature-list li { color: #222 !important; }
     .product-lead { font-size: 10pt; margin-bottom: 12px; }
     .modal-band-tag { border: 1px solid #b9d7f0; }
     .key-stats { background: #dde3ea !important; border-color: #dde3ea; margin-bottom: 12px; }
     .ks-item { background: #f4f6f9 !important; padding: 8px 6px; }
-    .ks-val { color: #001f3f; font-size: 13pt; }
+    .ks-val { color: #19375F; font-size: 13pt; }
     .ks-label { color: #444 !important; font-size: 7pt; }
-    .features-title { color: #001f3f !important; font-size: 10pt; margin-bottom: 6px; }
+    .features-title { color: #19375F !important; font-size: 10pt; margin-bottom: 6px; }
     .feature-list { gap: 3px; margin-bottom: 0; }
     .feature-list li { font-size: 9.5pt; }
-    .feature-list li::before { background: #0077b6; }
+    .feature-list li::before { background: #2f8fc4; }
 
     /* Teknik tablolar: iki versiyon da basılır */
     .specs-section { padding: 10px 0 0; }
