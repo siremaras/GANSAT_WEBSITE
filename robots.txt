@@ -5,4 +5,7 @@ Allow: /
 # Form endpoint: not a page, nothing to index
 Disallow: /contact.php
 
+# Build scripts (not part of the site)
+Disallow: /tools/
+
 Sitemap: https://www.gansat.com.tr/sitemap.xml
