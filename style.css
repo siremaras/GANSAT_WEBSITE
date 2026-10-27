@@ -72,7 +72,7 @@ header .logo { color: #19375F; }
 .nav-cta:active { transform: translateY(1px); }
 
 .lang-toggle { display: flex; align-items: center; gap: 6px; background: #f0f4f9; border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; }
-.lang-btn { background: none; border: none; color: rgba(25,55,95,0.45); font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; cursor: pointer; padding: 2px 4px; border-radius: 3px; transition: color 0.2s, background 0.2s; }
+.lang-btn { text-decoration: none; display: inline-block; line-height: 1.4; background: none; border: none; color: rgba(25,55,95,0.45); font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; cursor: pointer; padding: 2px 4px; border-radius: 3px; transition: color 0.2s, background 0.2s; }
 .lang-btn.active { color: #19375F; background: rgba(75,175,225,0.15); }
 .lang-btn:hover:not(.active) { color: rgba(25,55,95,0.75); }
 .lang-divider { color: rgba(25,55,95,0.2); font-size: 0.75rem; user-select: none; }

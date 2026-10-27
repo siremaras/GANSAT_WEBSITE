@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayfa bulunamadı · Page not found | Gansat Teknoloji</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#19375F">
+    <!-- Bu sayfa her adreste gösterilebildiği için tüm yollar kök dizinden başlar (/...) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <style>
+        .nf { min-height: calc(100vh - 64px); background: var(--navy); display: flex; align-items: center; justify-content: center; text-align: center; padding: 64px 24px; position: relative; overflow: hidden; }
+        .nf-inner { position: relative; z-index: 1; max-width: 640px; }
+        .nf-code { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(5rem, 18vw, 9rem); font-weight: 800; line-height: 1; color: var(--blue-bright); letter-spacing: 0.02em; }
+        .nf h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800; color: var(--white); margin: 12px 0 4px; line-height: 1.15; }
+        .nf .nf-en { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.2rem, 3.5vw, 1.6rem); font-weight: 600; color: var(--on-dark-muted); margin-bottom: 20px; }
+        .nf p { color: var(--on-dark-muted); line-height: var(--lh-body); margin-bottom: 32px; }
+        .nf-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .nf-simple-header nav { justify-content: flex-start; }
+        @media (max-width: 600px) { .nf-actions { flex-direction: column; align-items: stretch; } }
+    </style>
+</head>
+<body>
+    <header class="nf-simple-header">
+        <nav class="container">
+            <a href="/" class="logo">
+                <img src="/logo.webp" alt="GANSAT Teknoloji logosu" class="logo-mark" width="34" height="34">GANSAT<span>TEKNOLOJİ</span>
+            </a>
+        </nav>
+    </header>
+
+    <main class="nf">
+        <div class="hero-bg-grid"></div>
+        <div class="nf-inner">
+            <div class="nf-code" aria-hidden="true">404</div>
+            <h1>Aradığınız sayfa bulunamadı</h1>
+            <div class="nf-en" lang="en">Page not found</div>
+            <p>Sayfa taşınmış ya da adres yanlış yazılmış olabilir. Ana sayfaya dönebilir veya ürünlerimizi inceleyebilirsiniz.<br>
+               <span lang="en">The page may have moved or the address may be mistyped.</span></p>
+            <div class="nf-actions">
+                <a href="/" class="btn-primary">Ana Sayfa</a>
+                <a href="/#cozumler" class="btn-secondary">Ürünler</a>
+                <a href="/en/" class="btn-secondary" lang="en" hreflang="en">English Site</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

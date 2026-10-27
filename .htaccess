@@ -1,0 +1,3 @@
+# Gansat Teknoloji — Apache (Natro) ayarları
+# Bulunamayan adreslerde özel 404 sayfasını göster
+ErrorDocument 404 /404.html
