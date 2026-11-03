@@ -27,14 +27,26 @@ if (!function_exists('mb_substr')) {
     }
 }
 
+// Sunucu uyarılarının cevabı bozmaması için: hata metni ekrana basılmaz, yalnızca log'a yazılır
+@ini_set('display_errors', '0');
+@ini_set('log_errors', '1');
+ob_start();
+
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 header('Cache-Control: no-store');
 
 function respond($success, $code, $status = 200)
 {
-    http_response_code($status);
-    echo json_encode(['success' => $success, 'code' => $code]);
+    // daha önce basılmış olabilecek uyarıları temizle; yalnızca JSON gönder
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+    if (function_exists('http_response_code')) {
+        http_response_code($status);
+    }
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(array('success' => $success, 'code' => $code));
     exit;
 }
 
@@ -46,7 +58,7 @@ function field($key, $max)
     return trim(mb_substr($value, 0, $max, 'UTF-8'));
 }
 
-if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+if (!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(false, 'method', 405);
 }
 
@@ -56,10 +68,9 @@ if (!empty($_POST['website'])) {
 }
 
 // Basit hız sınırı
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-if (isset($_SESSION['contact_last']) && time() - $_SESSION['contact_last'] < $COOLDOWN) {
+// Oturum açılamazsa (ör. sunucuda oturum klasörü sorunu) form yine çalışır, yalnızca bu koruma atlanır
+$sessionOk = (function_exists('session_status') && session_status() === PHP_SESSION_ACTIVE) || @session_start();
+if ($sessionOk && isset($_SESSION['contact_last']) && time() - $_SESSION['contact_last'] < $COOLDOWN) {
     respond(false, 'rate', 429);
 }
 
@@ -86,7 +97,7 @@ $body = "Web sitesi iletişim formundan yeni mesaj\n"
       . "Telefon  : " . ($phone !== '' ? $phone : '-') . "\n"
       . "Konu     : {$subject}\n"
       . "Tarih    : " . date('d.m.Y H:i') . "\n"
-      . "IP       : " . ($_SERVER['REMOTE_ADDR'] ?? '-') . "\n"
+      . "IP       : " . (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '-') . "\n"
       . "----------------------------------------\n\n"
       . $message . "\n";
 
@@ -106,5 +117,7 @@ if (!mail($TO, $encodedSubject, $body, $headers)) {
     respond(false, 'mail', 500);
 }
 
-$_SESSION['contact_last'] = time();
+if ($sessionOk) {
+    $_SESSION['contact_last'] = time();
+}
 respond(true, 'ok');
